@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare const $;
 
 @Component({
   selector: 'app-hrms',
@@ -10,6 +11,11 @@ export class HrmsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $(document).ready(function(){
+      $("button").click(function(){
+          $("div").animate({left: '250px'});
+      });
+  });
   }
 
 }
