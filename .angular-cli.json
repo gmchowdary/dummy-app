@@ -22,11 +22,18 @@
         "styles.css",
         "vendor-assets/bootstrap/dist/css/bootstrap.min.css",
         "vendor-assets/Ionicons/css/ionicons.min.css",
-        "vendor-assets/font-awesome/css/font-awesome.min.css"
+        "vendor-assets/font-awesome/css/font-awesome.min.css",
+
+
+        "app/components/hrms/hrms-assets/dist/css/AdminLTE.min.css",
+        "app/components/hrms/hrms-assets/plugins/iCheck/square/blue.css"
       ],
       "scripts": [
         "vendor-assets/jquery/dist/jquery.min.js",
-        "vendor-assets/bootstrap/dist/js/bootstrap.min.js"
+        "vendor-assets/bootstrap/dist/js/bootstrap.min.js",
+
+        
+        "app/components/hrms/hrms-assets/plugins/iCheck/icheck.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

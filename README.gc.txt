@@ -11,3 +11,6 @@ ng generate component components/hrms/main-page-structure/side-menu-right
 ng generate component components/hrms/auth-page-structure
 ng generate component components/hrms/auth-page-structure/signin-form
 ng generate component components/hrms/auth-page-structure/signup-form
+
+Angular Live Reload problem
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
