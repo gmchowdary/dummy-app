@@ -10,6 +10,8 @@ import { SideMenuRightComponent } from './side-menu-right/side-menu-right.compon
 import { NavBarLogoComponent } from './nav-bar-logo/nav-bar-logo.component';
 import { PageBody1Component } from './page-bodies/page-body1/page-body1.component';
 import { PageBody2Component } from './page-bodies/page-body2/page-body2.component';
+import { MailsComponent } from './page-bodies/mails/mails.component';
+import { CalenderComponent } from './page-bodies/calender/calender.component';
 
 const appRoutes: Routes = [
   {path: "", component:PageBody1Component },
@@ -26,6 +28,8 @@ const appRoutes: Routes = [
     NavBarLogoComponent,
     PageBody1Component,
     PageBody2Component,
+    MailsComponent,
+    CalenderComponent,
  ],
   imports: [
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: `reload`})
