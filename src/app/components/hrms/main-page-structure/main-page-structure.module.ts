@@ -8,8 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SideMenuLeftComponent } from './side-menu-left/side-menu-left.component';
 import { SideMenuRightComponent } from './side-menu-right/side-menu-right.component';
 import { NavBarLogoComponent } from './nav-bar-logo/nav-bar-logo.component';
-import { PageBody1Component } from './page-body1/page-body1.component';
-import { PageBody2Component } from './page-body2/page-body2.component';
+import { PageBody1Component } from './page-bodies/page-body1/page-body1.component';
+import { PageBody2Component } from './page-bodies/page-body2/page-body2.component';
 
 const appRoutes: Routes = [
   {path: "", component:PageBody1Component },
