@@ -4,9 +4,15 @@ ng generate component components/hrms
 
 ng generate component components/hrms/main-page-structure
 ng generate component components/hrms/main-page-structure/nav-bar-top
+ng generate component components/hrms/main-page-structure/page-body1
+ng generate component components/hrms/main-page-structure/page-body2
+
+ng generate component components/hrms/main-page-structure/side-menu-right
 ng generate component components/hrms/main-page-structure/footer
 ng generate component components/hrms/main-page-structure/side-menu-left
 ng generate component components/hrms/main-page-structure/side-menu-right
+
+
 
 ng generate component components/hrms/auth-page-structure
 ng generate component components/hrms/auth-page-structure/signin-form
