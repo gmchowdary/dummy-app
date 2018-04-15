@@ -14,8 +14,10 @@ import { MailsComponent } from './page-bodies/mails/mails.component';
 import { CalenderComponent } from './page-bodies/calender/calender.component';
 
 const appRoutes: Routes = [
-  {path: "", component:PageBody1Component },
-  {path: "about", component:PageBody2Component }
+  {path: "", component:PageBody1Component},
+  {path: "about", component:PageBody2Component},
+  {path: "mails", component:MailsComponent},
+  {path: "calender", component:CalenderComponent}
 ]
 
 @NgModule({

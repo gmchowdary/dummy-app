@@ -35,7 +35,11 @@
         "app/components/hrms/hrms-assets/bower_components/jvectormap/jquery-jvectormap.css",
         "app/components/hrms/hrms-assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css",
         "app/components/hrms/hrms-assets/bower_components/bootstrap-daterangepicker/daterangepicker.css",
-        "app/components/hrms/hrms-assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"
+        "app/components/hrms/hrms-assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css",
+
+
+        "app/components/hrms/hrms-assets/bower_components/fullcalendar/dist/fullcalendar.min.css",
+        "app/components/hrms/hrms-assets/bower_components/fullcalendar/dist/fullcalendar.print.min.css"
       ],
       "scripts": [
         "vendor-assets/jquery/dist/jquery.min.js",
@@ -61,7 +65,15 @@
         "app/components/hrms/hrms-assets/bower_components/fastclick/lib/fastclick.js",
         "app/components/hrms/hrms-assets/dist/js/adminlte.min.js",
         "app/components/hrms/hrms-assets/dist/js/pages/dashboard.js",
-        "app/components/hrms/hrms-assets/dist/js/demo.js"
+        "app/components/hrms/hrms-assets/dist/js/demo.js",
+
+        "app/components/hrms/hrms-assets/dist/js/pages/dashboard2.js",
+
+        "app/components/hrms/hrms-assets/bower_components/fullcalendar/dist/fullcalendar.min.js",        
+        "app/components/hrms/hrms-assets/bower_components/moment/moment.js",
+        
+        "app/components/hrms/hrms-assets/bower_components/chart.js/Chart.js"
+
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
