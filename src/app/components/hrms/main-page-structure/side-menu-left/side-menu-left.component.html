@@ -54,7 +54,59 @@
           <small class="label pull-right bg-blue">17</small>
         </span>
       </a>
-    </li>    <li class="treeview">
+    </li>
+    <li>
+      <a [routerLink]="['/pay-manage']">
+        <i class="fa fa-th"></i> <span>PayManage</span>
+        <span class="pull-right-container">
+          <small class="label pull-right bg-green">new</small>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/task-tracker']">
+        <i class="fa fa-th"></i> <span>Task Tracker</span>
+        <span class="pull-right-container">
+          <small class="label pull-right bg-green">new</small>
+        </span>
+      </a>
+    </li>
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-share"></i> <span>Performance Management</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li>
+          <a [routerLink]="['/monthly-appraisal']">
+            <i class="fa fa-circle-o"></i> Monthly Appraisal
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/quarter-appraisal']">
+            <i class="fa fa-circle-o"></i> Quarter Appraisal
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/annual-appraisal']">
+            <i class="fa fa-circle-o"></i> Annual Appraisal
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/special-appraisal']">
+            <i class="fa fa-circle-o"></i> Special Appraisal
+          </a>
+        </li>
+      </ul>
+    </li>
+
+
+
+
+
+    <li class="treeview">
       <a href="#">
         <i class="fa fa-files-o"></i>
         <span>Layout Options</span>

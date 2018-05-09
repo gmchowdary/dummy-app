@@ -47,7 +47,14 @@ const appRoutes: Routes = [
   {path: "", component:PageBody1Component},
   {path: "about", component:PageBody2Component},
   {path: "mails", component:MailsComponent},
-  {path: "calender", component:CalenderComponent}
+  {path: "calender", component:CalenderComponent},
+  {path: "pay-manage", component:PayManageComponent},
+  {path: "task-tracker", component:TaskTrackerComponent},
+  {path: "monthly-appraisal", component:MonthlyAppraisalComponent},
+  {path: "quarter-appraisal", component:QuarterAppraisalComponent},
+  {path: "annual-appraisal", component:AnnualAppraisalComponent},
+  {path: "special-appraisal", component:SpecialAppraisalComponent},
+  
 ]
 
 @NgModule({
