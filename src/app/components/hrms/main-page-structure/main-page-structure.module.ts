@@ -22,9 +22,9 @@ import { TimeManagementComponent } from './ep/time-management/time-management.co
 import { LeaveComponent } from './ep/time-management/leave/leave.component';
 import { TimeSheetComponent } from './ep/time-management/time-sheet/time-sheet.component';
 import { PoliciesComponent } from './ep/policies/policies.component';
+import { FinanceComponent } from './ep/policies/finance/finance.component';
 import { HrComponent } from './ep/policies/hr/hr.component';
 import { ItComponent } from './ep/policies/it/it.component';
-import { FinanceComponent } from './ep/policies/finance/finance.component';
 import { HelpdeskComponent } from './ep/helpdesk/helpdesk.component';
 import { ViewComponent } from './ep/helpdesk/view/view.component';
 import { CreateComponent } from './ep/helpdesk/create/create.component';
@@ -54,6 +54,18 @@ const appRoutes: Routes = [
   {path: "quarter-appraisal", component:QuarterAppraisalComponent},
   {path: "annual-appraisal", component:AnnualAppraisalComponent},
   {path: "special-appraisal", component:SpecialAppraisalComponent},
+  {path: "asset", component:AssetComponent},
+  {path: "compensation", component:CompensationComponent},
+  {path: "insurance", component:InsuranceComponent},
+  {path: "personal-info", component:PersonalInfoComponent},
+  {path: "travel", component:TravelComponent},
+  {path: "leave", component:LeaveComponent},
+  {path: "time-sheet", component:TimeSheetComponent},
+  {path: "finance", component:FinanceComponent},
+  {path: "hr", component:HrComponent},
+  {path: "it", component:ItComponent},
+  {path: "nomination", component:NominationComponent},
+  {path: "policies", component:PoliciesComponent},
   
 ]
 
