@@ -42,7 +42,7 @@ import { NewsAndEventsComponent } from './ep/news-and-events/news-and-events.com
 import { ActivityTrackerComponent } from './ep/activity-tracker/activity-tracker.component';
 import { TaskTrackerComponent } from './ep/task-tracker/task-tracker.component';
 import { PayManageComponent } from './ep/pay-manage/pay-manage.component';
-
+import {HttpModule} from '@angular/http';
 const appRoutes: Routes = [
   {path: "", component:PageBody1Component},
   {path: "about", component:PageBody2Component},
@@ -113,9 +113,10 @@ const appRoutes: Routes = [
     PayManageComponent,
  ],
   imports: [
-    RouterModule.forRoot(appRoutes, {onSameUrlNavigation: `reload`})
+    RouterModule.forRoot(appRoutes, {onSameUrlNavigation: `reload`}),
+    HttpModule
   ],
-  providers: [],
+  providers: [HttpModule],
   bootstrap: [MainPageStructureComponent],
   exports: [MainPageStructureComponent]
 })
