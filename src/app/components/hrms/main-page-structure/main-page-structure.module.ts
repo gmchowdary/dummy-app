@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 
 import { MainPageStructureComponent } from './main-page-structure.component';
@@ -114,7 +116,9 @@ const appRoutes: Routes = [
  ],
   imports: [
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: `reload`}),
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [HttpModule],
   bootstrap: [MainPageStructureComponent],
