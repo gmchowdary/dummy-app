@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompensationService } from '../../../ep-services/profile/compensation.service';
 
 @Component({
   selector: 'app-compensation',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompensationComponent implements OnInit {
 
-  constructor() { }
+  constructor(public compensation:CompensationService) { }
 
   ngOnInit() {
   }

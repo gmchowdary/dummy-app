@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 
 import { MainPageStructureComponent } from './main-page-structure.component';
@@ -42,7 +43,14 @@ import { NewsAndEventsComponent } from './ep/news-and-events/news-and-events.com
 import { ActivityTrackerComponent } from './ep/activity-tracker/activity-tracker.component';
 import { TaskTrackerComponent } from './ep/task-tracker/task-tracker.component';
 import { PayManageComponent } from './ep/pay-manage/pay-manage.component';
-import {HttpModule} from '@angular/http';
+
+
+import {CompensationService} from '../main-page-structure/ep-services/profile/compensation.service'
+
+const appServices = [
+  CompensationService,
+]
+
 const appRoutes: Routes = [
   {path: "", component:PageBody1Component},
   {path: "about", component:PageBody2Component},
@@ -116,7 +124,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: `reload`}),
     HttpModule
   ],
-  providers: [HttpModule],
+  providers: [HttpModule,appServices],
   bootstrap: [MainPageStructureComponent],
   exports: [MainPageStructureComponent]
 })
