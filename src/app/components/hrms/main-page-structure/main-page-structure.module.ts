@@ -46,6 +46,8 @@ import { PayManageComponent } from './ep/pay-manage/pay-manage.component';
 
 
 import {CompensationService} from '../main-page-structure/ep-services/profile/compensation.service'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 const appServices = [
   CompensationService,
@@ -122,7 +124,10 @@ const appRoutes: Routes = [
  ],
   imports: [
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: `reload`}),
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule
   ],
   providers: [HttpModule,appServices],
   bootstrap: [MainPageStructureComponent],

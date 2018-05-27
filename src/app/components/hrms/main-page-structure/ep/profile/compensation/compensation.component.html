@@ -1,0 +1,147 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+      Personal Information
+
+    </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Profile</a></li>
+            <li class="active">Compensation</li>
+        </ol>
+    </section>
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Compensation</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <form [formGroup]="formcompensation"
+                (ngSubmit)="createEmpCompenastion()">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                               Annual Salary:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-building">
+                              </i>
+                                </div>
+                                <input id="annual-salary" name="annual_salary" type="text" formControlName="annual_salary" placeholder="Salary" class="form-control input-md">
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                               Monthly Salary:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user">
+                              </i>
+                                </div>
+                                <input id="monthly-salary" name="monthly_salary" type="text" formControlName="monthly_salary" placeholder="Salary" class="form-control input-md">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                               Basic:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-location-arrow">
+                              </i>
+                                </div>
+                                <input id="basic" name="basic" type="text" formControlName="basic" placeholder="Basic" class="form-control input-md">
+                            </div>
+
+                        </div>
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                              HRA:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-mortar-board">
+                              </i>
+                                </div>
+                                <input id="hra" name="HRA" type="text" formControlName="HRA" placeholder="" class="form-control input-md">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                               LTA:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user">
+                              </i>
+                                </div>
+                                <input id="lta" name="lta" type="text" formControlName="LTA" placeholder="LTA" class="form-control input-md">
+                            </div>
+
+                        </div>
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                                Special Allowance:</label>
+                             <div class="input-group">
+                                 <div class="input-group-addon">
+                                     <i class="fa fa-user">
+                               </i>
+                                 </div>
+                                 <input id="special-allowance" name="special_allowance" type="text" formControlName="special_allowance" placeholder="Special Allowance" class="form-control input-md">
+                             </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                                Medical:</label>
+                             <div class="input-group">
+                                 <div class="input-group-addon">
+                                     <i class="fa fa-user">
+                               </i>
+                                 </div>
+                                 <input id="medical" name="medical" type="text" formControlName="medical" placeholder="Medical" class="form-control input-md">
+                             </div>
+
+                        </div>
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                               PF:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-fighter-jet">
+                              </i>
+                                </div>
+                                <input id="pf" name="pf" type="text" formControlName="PF" placeholder="PF" class="form-control input-md">
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <button type="submit"  [disabled]="compensation.invalid" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>    

@@ -19,7 +19,7 @@ export class CompensationService {
   viewEmpCompensation(id: number){
     console.log('in service');
     return new Promise((result,reject)=>{ 
-      this.http.get("http://localhost:1337/EmpCompensation/"+ id )
+      this.http.get("http://ec2-13-127-93-234.ap-south-1.compute.amazonaws.com:1337/EmpCompensation/"+ id )
       .toPromise()
       .then(res=>{
         result(res.json());
@@ -32,7 +32,7 @@ export class CompensationService {
 
   createEmpCompensation(dataSet: object){
     return new Promise((result,reject)=>{ 
-      this.http.post("http://localhost:1337/EmpCompensation",dataSet)
+      this.http.post("http://ec2-13-127-93-234.ap-south-1.compute.amazonaws.com:1337/EmpCompensation/",dataSet)
       .toPromise()
       .then(res=>{
         result(res.json());
@@ -45,7 +45,7 @@ export class CompensationService {
   deleteEmpCompensation(id: number){
     console.log('in service');
     return new Promise((result,reject)=>{ 
-      this.http.delete("http://localhost:1337/EmpCompensation/" + id )
+      this.http.delete("http://ec2-13-127-93-234.ap-south-1.compute.amazonaws.com:1337/EmpCompensation/" + id )
       .toPromise()
       .then(res=>{
         result(res.json());
@@ -58,7 +58,7 @@ export class CompensationService {
     updateEmpCompensation(id: number, dataSet: object){
       console.log('in service');
       return new Promise((result,reject)=>{ 
-        this.http.put("http://localhost:1337/EmpCompensation/"+ id,dataSet)
+        this.http.put("http://ec2-13-127-93-234.ap-south-1.compute.amazonaws.com:1337/EmpCompensation/"+ id,dataSet)
         .toPromise()
         .then(res=>{
           result(res.json());
