@@ -23,7 +23,7 @@
         </div>
         <div class="box-body">
             <form [formGroup]="formcompensation"
-                (ngSubmit)="createEmpCompenastion()">
+                (ngSubmit)="send()">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-4 form-group">
@@ -35,7 +35,8 @@
                                     <i class="fa fa-building">
                               </i>
                                 </div>
-                                <input id="annual-salary" name="annual_salary" type="text" formControlName="annual_salary" placeholder="Salary" class="form-control input-md">
+
+                                <input id="annual-salary" name="annual_salary" [(ngModel)]="existing_emp_compensation === null ? null : existing_emp_compensation.annual_salary" type="text" formControlName="annual_salary" placeholder="Salary" class="form-control input-md" [attr.disabled]="( play_with_button_to == 'nutral' ) ? true : null">
                             </div>
 
                         </div>
@@ -49,7 +50,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="monthly-salary" name="monthly_salary" type="text" formControlName="monthly_salary" placeholder="Salary" class="form-control input-md">
+                                <input id="monthly-salary" name="monthly_salary" [(ngModel)]="existing_emp_compensation === null ? null : existing_emp_compensation.monthly_salary" type="text" formControlName="monthly_salary" placeholder="Salary" class="form-control input-md" [attr.disabled]="( play_with_button_to == 'nutral' ) ? true : null">
                             </div>
 
                         </div>
@@ -64,7 +65,7 @@
                                     <i class="fa fa-location-arrow">
                               </i>
                                 </div>
-                                <input id="basic" name="basic" type="text" formControlName="basic" placeholder="Basic" class="form-control input-md">
+                                <input id="basic" name="basic" type="text" [(ngModel)]="existing_emp_compensation === null ? null : existing_emp_compensation.basic" formControlName="basic" placeholder="Basic" class="form-control input-md" [attr.disabled]="( play_with_button_to == 'nutral' ) ? true : null">
                             </div>
 
                         </div>
@@ -77,7 +78,7 @@
                                     <i class="fa fa-mortar-board">
                               </i>
                                 </div>
-                                <input id="hra" name="HRA" type="text" formControlName="HRA" placeholder="" class="form-control input-md">
+                                <input id="hra" name="HRA" type="text" [(ngModel)]="existing_emp_compensation === null ? null : existing_emp_compensation.HRA" formControlName="HRA" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_button_to == 'nutral' ) ? true : null">
                             </div>
 
                         </div>
@@ -92,7 +93,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="lta" name="lta" type="text" formControlName="LTA" placeholder="LTA" class="form-control input-md">
+                                <input id="lta" name="lta" type="text" [(ngModel)]="existing_emp_compensation === null ? null : existing_emp_compensation.LTA" formControlName="LTA" placeholder="LTA" class="form-control input-md" [attr.disabled]="( play_with_button_to == 'nutral' ) ? true : null">
                             </div>
 
                         </div>
@@ -105,7 +106,7 @@
                                      <i class="fa fa-user">
                                </i>
                                  </div>
-                                 <input id="special-allowance" name="special_allowance" type="text" formControlName="special_allowance" placeholder="Special Allowance" class="form-control input-md">
+                                 <input id="special-allowance" name="special_allowance" [(ngModel)]="existing_emp_compensation === null ? null : existing_emp_compensation.special_allowance" type="text" formControlName="special_allowance" placeholder="Special Allowance" class="form-control input-md" [attr.disabled]="( play_with_button_to == 'nutral' ) ? true : null">
                              </div>
 
                         </div>
@@ -120,7 +121,7 @@
                                      <i class="fa fa-user">
                                </i>
                                  </div>
-                                 <input id="medical" name="medical" type="text" formControlName="medical" placeholder="Medical" class="form-control input-md">
+                                 <input id="medical" name="medical" [(ngModel)]="existing_emp_compensation === null ? null : existing_emp_compensation.medical" type="text"  formControlName="medical" placeholder="Medical" class="form-control input-md" [attr.disabled]="( play_with_button_to == 'nutral' ) ? true : null">
                              </div>
 
                         </div>
@@ -133,13 +134,39 @@
                                     <i class="fa fa-fighter-jet">
                               </i>
                                 </div>
-                                <input id="pf" name="pf" type="text" formControlName="PF" placeholder="PF" class="form-control input-md">
+                                <input id="pf" name="pf"[(ngModel)]="existing_emp_compensation === null ? null : existing_emp_compensation.PF" type="text" formControlName="PF" placeholder="PF" class="form-control input-md" [attr.disabled]="(play_with_button_to == 'nutral' ) ? true : null">
                             </div>
-
-                        </div>
+                            <div class="alert alert-danger" *ngIf="PF.touched && PF.invalid">
+                                    <div *ngIf="PF.required"> PF is required</div>
+                                    <div *ngIf="PF.pattern || PF.minlength">Too short 0r invlaid</div>
+        
+                            </div>
+                        </div>                      
                     </div>
                     
-                    <button type="submit"  [disabled]="compensation.invalid" class="btn btn-primary">Submit</button>
+
+                    
+                    <!-- id null -->
+                    
+                    <button *ngIf="this.play_with_button_to == 'create'" type="submit"  [disabled]="compensation.invalid" class="btn btn-primary" >Submit</button>
+                    
+                    <!-- IF nutral
+                        1st option_type="edit"
+                        2nd form_disable
+                        3rd submit_button hide
+                        4th edit button enable
+                    -->
+                        <button *ngIf="this.play_with_button_to == 'nutral'" class="btn btn-primary" (click)="edit_form()">Edit</button>
+                        <button *ngIf="this.play_with_button_to == 'edit'" type="submit"  [disabled]="compensation.invalid" class="btn btn-success">Update</button>
+                        <button *ngIf="this.play_with_button_to == 'edit'" class="btn btn-primary"  (click)="cancel_edit()">Cancel</button>
+                        
+                        <!-- IF nutral
+                            1st option_type="edit"
+                            2nd form_disable
+                            3rd submit_button hide
+                            4th edit button enable
+                        -->
+                        <!--<button (onclick)=hide()</button>-->
                 </div>
             </form>
         </div>

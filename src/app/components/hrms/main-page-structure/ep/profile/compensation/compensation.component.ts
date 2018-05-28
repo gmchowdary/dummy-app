@@ -11,6 +11,21 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class CompensationComponent implements OnInit {
 
   formcompensation: FormGroup;
+  existing_emp_compensation = null;
+  existing_emp_compensation_backup = null;
+  id = null;
+  play_with_button_to = this.id === null ? "create" : "nutral" ; //"edit"
+  
+  edit_form(){
+    this.play_with_button_to = 'edit'
+  }
+//formcompensation.reset()
+  cancel_edit(){
+    this.existing_emp_compensation = JSON.parse(JSON.stringify(this.existing_emp_compensation_backup));
+    this.play_with_button_to = 'nutral'
+  }
+
+  
 
   constructor(fb: FormBuilder,
     public compensation:CompensationService) {
@@ -59,46 +74,36 @@ get PF() {
   return this.formcompensation.get('PF') as FormControl 
 }
 
-send() {
-  console.log(this.formcompensation.value);
-
+ngOnInit() {
+    //Get Data
+    this.compensation.viewEmpCompensation(this.id).then(data=>{
+      this.existing_emp_compensation = data;
+      this.existing_emp_compensation_backup = JSON.parse(JSON.stringify(data));
+    });
+      
 }
-  
-  ngOnInit() {
-    
-    
-  }
 
-  viewEmpCompensation(){
-    
-       //GET Data
-       this.compensation.viewEmpCompensation(1).then(data=>{
-        return data;
-       });
-  }
 
-  createEmpCompenastion() {
-    // POST Data
-    // var dataSet= {
-    //     annual_salary: 200000.00,
-    //     monthly_salary: 2000.00,
-    //     basic: 1200.00,
-    //     HRA: 200.00,
-    //     LTA: 200.0,
-    //     special_allowance: 2000.00,
-    //     medical: "12345678",
-    //     PF: "12345678"
-    // };
-    console.log(this.formcompensation.value );
-    console.log("***************************************");
+  send(){
     var dataSet = this.formcompensation.value;
-    this.compensation.createEmpCompensation( dataSet ).then(data=>{
-       console.log(data);
-       
-     });
-
+    if( this.existing_emp_compensation === null  ){
+      console.log("HIII");
+      this.compensation.createEmpCompensation( dataSet ).then(data=>{
+        this.existing_emp_compensation = data
+        this.existing_emp_compensation_backup = JSON.parse(JSON.stringify(data))
+        this.id = this.existing_emp_compensation.id
+        console.log(this.id);
+      });
+    }
+    else{ 
+      console.log("hello");
+      console.log(this.id);
+      this.compensation.updateEmpCompensation( this.id, dataSet ).then(data=>{
+        this.existing_emp_compensation = data
+        this.existing_emp_compensation_backup = JSON.parse(JSON.stringify(data))
+        console.log(dataSet);
+      });
+    }
+    this.play_with_button_to = 'nutral'
   }
-    
-
-
 }

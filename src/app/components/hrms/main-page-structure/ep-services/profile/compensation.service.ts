@@ -17,14 +17,15 @@ export class CompensationService {
   constructor(public http:Http) { }
   
   viewEmpCompensation(id: number){
-    console.log('in service');
     return new Promise((result,reject)=>{ 
       this.http.get("http://ec2-13-127-93-234.ap-south-1.compute.amazonaws.com:1337/EmpCompensation/"+ id )
       .toPromise()
       .then(res=>{
         result(res.json());
       },err=>{
-        reject(err)
+        //reject(err)
+        console.log(err);
+        result(null);
       });
     });
   }
