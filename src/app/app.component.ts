@@ -10,12 +10,6 @@ export class AppComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    $(document).ready(function(){
-      $("button").click(function(){
-          $("div").animate({left: '250px'});
-      });
-  });
-  }
-
+  ngOnInit() {}
+    
 }
