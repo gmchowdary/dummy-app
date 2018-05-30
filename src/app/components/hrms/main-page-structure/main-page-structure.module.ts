@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';  
 
 
 
@@ -117,6 +118,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: `reload`}),
     HttpModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule
   ],
