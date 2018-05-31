@@ -23,7 +23,8 @@
             </div>
         </div>
         <div class="box-body">
-            <form class="form-row">
+            <form [formGroup]="personalInfo"
+                  (ngSubmit)="send()">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-4 form-group">
@@ -35,10 +36,18 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="ID" class="form-control input-md">
+                                <input id="associate-id" name="associate-id" type="text" formControlName="associateId" placeholder="ID" class="form-control input-md">
                             </div>
-
-                        </div>
+                            <div class="alert alert-danger" 
+                                *ngIf=" associateId.touched && !associateId.valid">
+                                    <div *ngIf="associateId.errors.required">
+                                         AssociateId is required.
+                                    </div>
+                                    <div *ngIf="associateId.errors.minlength || associateId.errors.pattern">
+                                         Too short or invalid id!                         
+                                    </div>
+                            </div>
+                        </div>                    
                     </div>
                     <div class="row">
                         <div class="col-sm-4 form-group">
@@ -50,9 +59,17 @@
                                     <i class="fa fa-user">
                                     </i>
                                 </div>
-                                <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="Name (Full name)" class="form-control input-md">
+                                <input id="first-name" name="first-name" type="text"  formControlName="firstName" placeholder="Name (Full name)" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf=" firstName.touched && !firstName.valid">
+                                    <div *ngIf="firstName.errors.required">
+                                            FirstName is required.
+                                    </div>
+                                    <div *ngIf="firstName.errors.minlength || firstName.errors.pattern">
+                                         Too short or invalid name!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
                             <label for="name">
@@ -63,7 +80,16 @@
                                     <i class="fa fa-user">
                                     </i>
                                 </div>
-                                <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="Name (Full name)" class="form-control input-md">
+                                <input id="middle-name" name="middle-name" type="text" formControlName="middleName" placeholder="Name (Full name)" class="form-control input-md">
+                            </div>
+                            <div class="alert alert-danger" 
+                                *ngIf=" middleName.touched && !middleName.valid">
+                                    <div *ngIf="middleName.errors.required">
+                                            middleName is required.
+                                    </div>
+                                    <div *ngIf="middleName.errors.minlength || middleName.errors.pattern">
+                                         Too short or invalid name!                         
+                                    </div>
                             </div>
                         </div>
                         <div class="col-sm-4 form-group">
@@ -75,10 +101,18 @@
                                     <i class="fa fa-user">
                                     </i>
                                 </div>
-                                <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="Name (Full name)" class="form-control input-md">
+                                <input id="last-name" name="last-name" type="text" formControlName="lastName" placeholder="Name (Full name)" class="form-control input-md">
+                            </div>
+                            <div class="alert alert-danger" 
+                                *ngIf=" lastName.touched && !lastName.valid">
+                                    <div *ngIf="lastName.errors.required">
+                                            LastName is required.
+                                    </div>
+                                    <div *ngIf="lastName.errors.minlength || lastName.errors.pattern">
+                                         Too short or invalid name!                         
+                                    </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="row">
@@ -112,15 +146,23 @@
                         <div class="col-sm-4 form-group">
 
                             <label for="name">
-                                Email Address:</label>
+                                Email:</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="fa fa-envelope-o">
                                     </i>
                                 </div>
-                                <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="email" class="form-control input-md">
+                                <input id="email" name="email" type="text" formControlName="email" placeholder="email" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf=" email.touched && !email.valid">
+                                    <div *ngIf="email.errors.required">
+                                            Email is required.
+                                    </div>
+                                    <div *ngIf="email.errors.pattern">
+                                         invalid email!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
 
@@ -131,9 +173,17 @@
                                     <i class="fa fa-envelope-o">
                                     </i>
                                 </div>
-                                <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="email" class="form-control input-md">
+                                <input id="personal-email" name="personal-email" type="text" formControlName="personalEmail" placeholder="email" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf=" personalEmail.touched && !personalEmail.valid">
+                                    <div *ngIf="personalEmail.errors.required">
+                                            Email is required.
+                                    </div>
+                                    <div *ngIf="personalEmail.errors.pattern">
+                                         invalid email!                         
+                                    </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -146,9 +196,17 @@
                                     <i class="fa fa-male">
                                         </i>
                                 </div>
-                                <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="Name (Full name)" class="form-control input-md">
+                                <input id="father-name" name="father-name" type="text" formControlName="fatherName"  placeholder="fatherName" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf=" fatherName.touched && !fatherName.valid">
+                                    <div *ngIf="fatherName.errors.required">
+                                            FatherName is required.
+                                    </div>
+                                    <div *ngIf="fatherName.errors.minlength || fatherName.errors.pattern">
+                                         Too short or invalid name!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
                             <label for="name">
@@ -159,7 +217,16 @@
                                     <i class="fa  fa-female">
                                         </i>
                                 </div>
-                                <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="Name (Full name)" class="form-control input-md">
+                                <input id="mother-name" name="mother-name" type="text" formControlName="motherName" placeholder="motherName" class="form-control input-md">
+                            </div>
+                            <div class="alert alert-danger" 
+                                *ngIf="motherName.touched && !motherName.valid">
+                                    <div *ngIf="motherName.errors.required">
+                                            MotherName is required.
+                                    </div>
+                                    <div *ngIf="motherName.errors.minlength || motherName.errors.pattern">
+                                         Too short or invalid name!                         
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -173,9 +240,17 @@
                                     <i class="fa fa-mobile">
                                         </i>
                                 </div>
-                                <input id="Phone number" name="Phone number" type="text" placeholder="Phone number" class="form-control input-md">
+                                <input id="phone-number" name="phone-number" type="text" formControlName="phone" placeholder="PhoneNumber" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="phone.touched && !phone.valid">
+                                    <div *ngIf="phone.errors.required">
+                                         Phone number is required!
+                                    </div>
+                                    <div *ngIf="phone.errors.maxlength || phone.errors.pattern">
+                                        invalid number!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
                             <label for="name">
@@ -186,7 +261,16 @@
                                     <i class="fa fa-mobile">
                                         </i>
                                 </div>
-                                <input id="Phone number" name="Phone number)" type="text" placeholder="Phone number" class="form-control input-md">
+                                <input id="phone-home" name="phone-home" type="text" formControlName="phoneHome" placeholder="Phone number" class="form-control input-md">
+                            </div>
+                            <div class="alert alert-danger" 
+                                *ngIf="phoneHome.touched && !phoneHome.valid">
+                                    <div *ngIf="phoneHome.errors.required">
+                                         Phone number is required!
+                                    </div>
+                                    <div *ngIf="phoneHome.errors.maxlength || phoneHome.errors.pattern">
+                                        invalid number!                         
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -200,9 +284,17 @@
                                     <i class="fa fa-birthday-cake">
                                         </i>
                                 </div>
-                                <input id="Date oF Birth" name="Date oF Birth" type="text" placeholder="Date oF Birth" class="form-control input-md">
+                                <input id="date-of-birth" name="date-of-birth" type="text"  formControlName="dob" placeholder="Date oF Birth" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="dob.touched && !dob.valid">
+                                    <div *ngIf="dob.errors.required">
+                                         Date of Birth is required!
+                                    </div>
+                                    <div *ngIf="dob.errors.pattern">
+                                        Invalid Dob!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
 
@@ -211,9 +303,18 @@
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="fa fa-birthday-cake">
-                                        </i>
+                                    </i>
                                 </div>
-                                <input id="Date oF Birth" name="Date oF Birth" type="text" placeholder="Date oF Birth" class="form-control input-md">
+                                <input id="date-of-joining" name="date-of-joining" type="text" formControlName="doj" placeholder="Date oF Joining" class="form-control input-md">
+                            </div>
+                            <div class="alert alert-danger" 
+                                *ngIf="doj.touched && !doj.valid">
+                                    <div *ngIf="doj.errors.required">
+                                         Date of Joining  is required!
+                                    </div>
+                                    <div *ngIf="doj.errors.pattern">
+                                        invalid date of joining!                         
+                                    </div>
                             </div>
 
                         </div>
@@ -229,9 +330,17 @@
                                     <i class="fa fa-birthday-cake">
                                         </i>
                                 </div>
-                                <input id="Date oF Birth" name="Date oF Birth" type="text" placeholder="Date oF Birth" class="form-control input-md">
+                                <input id="Date oF Birth" name="Date oF Birth" type="text" formControlName="bloodGroup" placeholder="Date oF Birth" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="bloodGroup.touched && !bloodGroup.valid">
+                                    <div *ngIf="bloodGroup.errors.required">
+                                         Blood Group  is required!
+                                    </div>
+                                    <div *ngIf="bloodGroup.errors.pattern">
+                                        invalid Blood Group!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
 
@@ -242,7 +351,16 @@
                                     <i class="fa fa-birthday-cake">
                                         </i>
                                 </div>
-                                <input id="Date oF Birth" name="Date oF Birth" type="text" placeholder="Date oF Birth" class="form-control input-md">
+                                <input id="Nationality" name="Nationality" type="text" formControlName="nationality" placeholder="Nationality" class="form-control input-md">
+                            </div>
+                            <div class="alert alert-danger" 
+                                *ngIf="nationality.touched && !nationality.valid">
+                                    <div *ngIf="nationality.errors.required">
+                                            Nationality is required.
+                                    </div>
+                                    <div *ngIf="nationality.errors.minlength || nationality.errors.pattern">
+                                         Too short or invalid name!                         
+                                    </div>
                             </div>
 
                         </div>
@@ -258,9 +376,17 @@
                                     <i class="fa fa-credit-card">
                                         </i>
                                 </div>
-                                <input id="UAN No" name="UAN No" type="text" placeholder="" class="form-control input-md">
+                                <input id="UAN-No" name="UAN_No" formControlName="uanNo" type="text" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="uanNo.touched && !uanNo.valid">
+                                    <div *ngIf="uanNo.errors.required">
+                                            UAN No is required.
+                                    </div>
+                                    <div *ngIf="uanNo.errors.pattern">
+                                             invalid no!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
 
@@ -271,9 +397,17 @@
                                     <i class="fa fa-credit-card">
                                         </i>
                                 </div>
-                                <input id="VoterCard No" name="VoterCard No" type="text" placeholder="" class="form-control input-md">
+                                <input id="voter-card-no" name="voter_Card_No" formControlName="voterCardNo" type="text" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="voterCardNo.touched && !voterCardNo.valid">
+                                    <div *ngIf="voterCardNo.errors.required">
+                                            VoterCard number is required.
+                                    </div>
+                                    <div *ngIf="voterCardNo.errors.pattern">
+                                            invalid card no!                         
+                                    </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -287,9 +421,17 @@
                                     <i class="fa fa-credit-card">
                                         </i>
                                 </div>
-                                <input id="Adhaar Card No" name="Adhaar Card No" type="text" placeholder="" class="form-control input-md">
+                                <input id="adhaar-card-no" name="adhaar_card_no" formControlName="adhaarCardNo" type="text" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="adhaarCardNo.touched && !adhaarCardNo.valid">
+                                    <div *ngIf="adhaarCardNo.errors.required">
+                                            Adhaar Card is required.
+                                    </div>
+                                    <div *ngIf="adhaarCardNo.errors.pattern">
+                                         Invalid card no!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
 
@@ -300,9 +442,17 @@
                                     <i class="fa fa-pencil-square">
                                         </i>
                                 </div>
-                                <input id="Name As Per Adhaar Card" name="Name As Per Adhaar Card" type="text" placeholder="" class="form-control input-md">
+                                <input id="name-as-per-adhaar-card" name="name_as_per_adhaar_card" formControlName="nameAsPerAdhaarCard" type="text" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="nameAsPerAdhaarCard.touched && !nameAsPerAdhaarCard.valid">
+                                    <div *ngIf="nameAsPerAdhaarCard.errors.required">
+                                            Adhaar is required.
+                                    </div>
+                                    <div *ngIf="nameAsPerAdhaarCard.errors.pattern">
+                                             invalid name!                         
+                                    </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -316,9 +466,17 @@
                                     <i class="fa fa-credit-card">
                                         </i>
                                 </div>
-                                <input id="Driving Licence No" name="Driving Licence No" type="text" placeholder="" class="form-control input-md">
+                                <input id="driving-licence-no" name="driving_licence_no" formControlName="dlNumber" type="text" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="dlNumber.touched && !dlNumber.valid">
+                                    <div *ngIf="dlNumber.errors.required">
+                                            DL is required.
+                                    </div>
+                                    <div *ngIf="dlNumber.errors.pattern">
+                                            invalid no!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
 
@@ -329,9 +487,17 @@
                                     <i class="fa fa-birthday-cake">
                                         </i>
                                 </div>
-                                <input id="DL Expiry Date" name="DL Expiry Date" type="text" placeholder="" class="form-control input-md">
+                                <input id="dl-expiry-date" name="dl_expiry_date" type="text" formControlName="dlExpiryDate" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="dlExpiryDate.touched && !dlExpiryDate.valid">
+                                    <div *ngIf="dlExpiryDate.errors.required">
+                                         Date is required!
+                                    </div>
+                                    <div *ngIf="dlExpiryDate.errors.pattern">
+                                        invalid date!                         
+                                    </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -345,9 +511,17 @@
                                     <i class="fa fa-credit-card">
                                         </i>
                                 </div>
-                                <input id="PAN Card" name="PAN Card" type="text" placeholder="" class="form-control input-md">
+                                <input id="PAN-card" name="PAN_card" type="text" formControlName="panCard" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="panCard.touched && !panCard.valid">
+                                    <div *ngIf="panCard.errors.required">
+                                            PAN is required.
+                                    </div>
+                                    <div *ngIf="panCard.errors.pattern">
+                                            Invalid Card!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
 
@@ -358,9 +532,17 @@
                                     <i class="fa fa-pencil-square">
                                         </i>
                                 </div>
-                                <input id="Name As Per PAN Card" name="Name As Per PAN Card" type="text" placeholder="" class="form-control input-md">
+                                <input id="name-as-per-PAN-card" name="name_as_per_PAN_card" type="text" formControlName="nameAsPerPanCard" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="nameAsPerPanCard.touched && !nameAsPerPanCard.valid">
+                                    <div *ngIf="nameAsPerPanCard.errors.required">
+                                            Name is required.
+                                    </div>
+                                    <div *ngIf="nameAsPerPanCard.errors.pattern">
+                                            Invalid Name!                         
+                                    </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -374,9 +556,17 @@
                                     <i class="fa fa-birthday-cake">
                                         </i>
                                 </div>
-                                <input id="Passport No" name="Passport No" type="text" placeholder="" class="form-control input-md">
+                                <input id="passport-no" name="passport_no" type="text" formControlName="passportNo" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="passportNo.touched && !passportNo.valid">
+                                    <div *ngIf="passportNo.errors.required">
+                                            Passport is required.
+                                    </div>
+                                    <div *ngIf="passportNo.errors.pattern">
+                                         Too short or invalid name!                         
+                                    </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
 
@@ -387,11 +577,22 @@
                                     <i class="fa fa-birthday-cake">
                                         </i>
                                 </div>
-                                <input id="Passport Valid To" name="Passport Valid To" type="text" placeholder="" class="form-control input-md">
+                                <input id="passport-valid-to" name="passport_valid_to" type="text" formControlName="passportValidTo" placeholder="" class="form-control input-md">
                             </div>
-
+                            <div class="alert alert-danger" 
+                                *ngIf="passportValidTo.touched && !passportValidTo.valid">
+                                    <div *ngIf="passportValidTo.errors.required">
+                                         Passport valid is required!
+                                    </div>
+                                    <div *ngIf="passportValidTo.errors.pattern">
+                                        invalid date!                         
+                                    </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <button type="submit" [disabled]="personalInfo.invalid" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
@@ -566,7 +767,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="Em Contact Person" name="Em Contact Person" type="text" placeholder="" class="form-control input-md">
+                                <input id="em-contact-person" name="em_contact_person" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                         <div class="col-sm-4 form-group">
@@ -578,7 +779,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="Em Contact Relation" name="Em Contact Relation" type="text" placeholder="" class="form-control input-md">
+                                <input id="em-contact-relation" name="em_contact_relation" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                     </div>
@@ -592,7 +793,7 @@
                                     <i class="fa  fa-phone">
                               </i>
                                 </div>
-                                <input id="Em Contact Num1" name="Em Contact Num1" type="text" placeholder="" class="form-control input-md">
+                                <input id="em-contact-num1" name="em_contact_num1" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                         <div class="col-sm-4 form-group">
@@ -604,7 +805,33 @@
                                     <i class="fa  fa-phone">
                               </i>
                                 </div>
-                                <input id="Em Contact Num2" name="Em Contact Num2" type="text" placeholder="" class="form-control input-md">
+                                <input id="em-contact-num2" name="em_contact_num2" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                                Em Email:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa  fa-phone">
+                              </i>
+                                </div>
+                                <input id="em-email" name="em_email" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                                Em Email Alternate:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa  fa-phone">
+                              </i>
+                                </div>
+                                <input id="em-email-alternate" name="em_email_alternate" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                     </div>
@@ -618,7 +845,7 @@
                                     <i class="fa fa-facebook">
                               </i>
                                 </div>
-                                <input id="Facebook Id" name="Facebook Id" type="text" placeholder="" class="form-control input-md">
+                                <input id="facebook-id" name="facebook_id" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                         <div class="col-sm-4 form-group">
@@ -630,7 +857,7 @@
                                     <i class="fa  fa-linkedin">
                               </i>
                                 </div>
-                                <input id="LinkedIn Id" name="LinkedIn Id" type="text" placeholder="" class="form-control input-md">
+                                <input id="linkedIn-id" name="linkedIn_id" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                     </div>
@@ -681,7 +908,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="City" name="City" type="text" placeholder="" class="form-control input-md">
+                                <input id="city" name="city" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                         <div class="col-sm-4 form-group">
@@ -693,7 +920,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="City" name="City" type="text" placeholder="" class="form-control input-md">
+                                <input id="city" name="city" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                     </div>
@@ -707,7 +934,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="State" name="State" type="text" placeholder="" class="form-control input-md">
+                                <input id="state" name="state" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                         <div class="col-sm-4 form-group">
@@ -719,7 +946,33 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="State" name="State" type="text" placeholder="" class="form-control input-md">
+                                <input id="state" name="state" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                                Country:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user">
+                              </i>
+                                </div>
+                                <input id="country" name="country" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 form-group">
+
+                            <label for="name">
+                                Country:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user">
+                              </i>
+                                </div>
+                                <input id="country" name="country" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                     </div>
@@ -733,7 +986,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="Zip Code" name="Zip Code" type="text" placeholder="" class="form-control input-md">
+                                <input id="zip-code" name="zip_code" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                         <div class="col-sm-4 form-group">
@@ -745,7 +998,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="Zip Code)" name="Zip Code" type="text" placeholder="" class="form-control input-md">
+                                <input id="zip-code" name="zip_code" type="text" placeholder="" class="form-control input-md">
                             </div>
                         </div>
                     </div>
@@ -826,7 +1079,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="Qualification" name="Qualification" type="text" placeholder="" class="form-control input-md">
+                                <input id="qualification" name="qualification" type="text" placeholder="" class="form-control input-md">
                             </div>
 
                         </div>
@@ -841,7 +1094,7 @@
                                     <i class="fa fa-user">
                               </i>
                                 </div>
-                                <input id="University" name="University" type="text" placeholder="" class="form-control input-md">
+                                <input id="university" name="university" type="text" placeholder="" class="form-control input-md">
                             </div>
 
                         </div>   
@@ -854,7 +1107,7 @@
                                   <i class="fa fa-user">
                             </i>
                               </div>
-                              <input id="Institute" name="Institute" type="text" placeholder="" class="form-control input-md">
+                              <input id="institute" name="institute" type="text" placeholder="" class="form-control input-md">
                           </div>
                         </div>
                   </div>  
@@ -868,7 +1121,7 @@
                                   <i class="fa fa-user">
                             </i>
                               </div>
-                              <input id="Percentage(%)" name="Percentage(%)" type="text" placeholder="" class="form-control input-md">
+                              <input id="percentage(%)" name="percentage(%)" type="text" placeholder="" class="form-control input-md">
                           </div>
                       </div> 
                   </div>    
