@@ -1,0 +1,177 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+      <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i>Personal-Info</a></li>
+          <li class="active">Educational Information</li>
+      </ol>
+  </section> 
+  <div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Educational Information</h3>
+
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+        <form [formGroup]="educationalInformation"
+                (ngSubmit)="send()">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            10th(%):</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="10th%" name="_10th_percentage" [(ngModel)]="existing_emp_educational_info === null ? null : existing_emp_educational_info._10th_percentage" type="text" formControlName="tenth" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_educational_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="tenth.touched && !tenth.valid">
+                                <div *ngIf="tenth.errors.required">
+                                     Percentage is required!
+                                </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            12th(%):</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="12th%" name="_12th_percentage" [(ngModel)]="existing_emp_educational_info === null ? null : existing_emp_educational_info._12th_percentage" type="text" formControlName="twelve" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_educational_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                            <div class="alert alert-danger" 
+                            *ngIf="twelve.touched && !twelve.valid">
+                                <div *ngIf="twelve.errors.required">
+                                     Percentage is required!
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4 form-group">
+                    <h5>Highest Qualification</h5>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class=" col-sm-4 form-group">
+                        <label>Qualification</label>
+                        <select class="form-control">
+                            <option></option>
+                          <option>Phd</option>
+                          <option>Ms</option>
+                          <option>MTech</option>
+                          <option>Btech</option>
+                          <option>Intermediate</option>
+                          <option>10th</option>
+                          
+                        </select>
+                        
+                    </div>
+                    <div class="alert alert-danger" 
+                            *ngIf="qualification.touched && !qualification.valid">
+                                <div *ngIf="qualification.errors.required">
+                                        Qualification is required!
+                                </div>
+                            </div>
+                   <!-- <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Qualification:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="qualification" name="qualification" type="text" formControlName="qualification" placeholder="" class="form-control input-md">
+                        </div>
+                            <div class="alert alert-danger" 
+                            *ngIf="qualification.touched && !qualification.valid">
+                                <div *ngIf="qualification.errors.required">
+                                        Qualification is required!
+                                </div>
+                            </div>
+                    </div>-->
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            University:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="University" name="University" [(ngModel)]="existing_emp_educational_info === null ? null : existing_emp_educational_info.University" formControlName="university" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_educational_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                            <div class="alert alert-danger" 
+                            *ngIf="university.touched && !university.valid">
+                                <div *ngIf="university.errors.required">
+                                        University is required!
+                                </div>
+                            </div>
+                    </div>   
+                   <!-- <div class="col-sm-4 form-group">
+
+                      <label for="name">
+                          Institute:</label>
+                      <div class="input-group">
+                          <div class="input-group-addon">
+                              <i class="fa fa-user">
+                        </i>
+                          </div>
+                          <input id="institute" name="institute" [(ngModel)]="existing_emp_educational_info === null ? null : existing_emp_educational_info.institute" formControlName="institute" type="text" placeholder="" class="form-control input-md">
+                      </div>
+                        <div class="alert alert-danger" 
+                        *ngIf="institute.touched && !institute.valid">
+                            <div *ngIf="institute.errors.required">
+                                    Institute is required!
+                            </div>
+                        </div>
+                    </div>-->
+              </div>  
+              <div class="row">
+                  <div class="col-sm-4 form-group">
+
+                      <label for="name">
+                          Percentage(%):</label>
+                      <div class="input-group">
+                          <div class="input-group-addon">
+                              <i class="fa fa-user">
+                        </i>
+                          </div>
+                          <input id="percentage(%)" name="Percentage" [(ngModel)]="existing_emp_educational_info === null ? null : existing_emp_educational_info.Percentage" formControlName="percentage" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_educational_info_button_to == 'nutral' ) ? true : null">
+                      </div>
+                        <div class="alert alert-danger" 
+                        *ngIf="percentage.touched && !percentage.valid">
+                            <div *ngIf="percentage.errors.required">
+                                    Percentage is required!
+                            </div>
+                        </div>
+                  </div> 
+              </div> 
+              <button *ngIf="this.play_with_educational_info_button_to == 'create'" type="submit"  class="btn btn-primary">Submit </button>
+                
+                <button *ngIf="this.play_with_educational_info_button_to == 'nutral'" class="btn btn-primary"  (click)="edit_form()">Update</button>
+                <button  *ngIf="this.play_with_educational_info_button_to == 'edit'" type="submit"  class="btn btn-primary">Save</button>
+                <button  *ngIf="this.play_with_educational_info_button_to == 'edit'" class="btn btn-primary" (click)="cancel_edit()" >Cancel</button>   
+            </div>
+        </form>
+    </div>     
+  </div>
+</div>  

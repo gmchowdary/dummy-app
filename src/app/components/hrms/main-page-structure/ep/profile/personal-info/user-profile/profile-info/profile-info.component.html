@@ -1,0 +1,378 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+      Personal Information
+  
+    </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Personal Information</li>
+        </ol>
+    </section>
+    <div class="box">
+      <div class="box-header with-border">
+          <h3 class="box-title">User profile form requirement</h3>
+  
+          <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+  
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+      </div>
+      <div class="box-body">
+          <form [formGroup]="formProfileInfo"
+                (ngSubmit)="send()">
+              <div class="form-group">
+                  <div class="row">
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              Associate ID:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-user">
+                            </i>
+                              </div>
+                              <input id="associate-id" name="Associate_id" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Associate_id" type="text" formControlName="associateId" placeholder="ID" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf=" associateId.touched && !associateId.valid">
+                                  <div *ngIf="associateId.errors.required">
+                                       AssociateId is required.
+                                  </div>
+                                  <div *ngIf="associateId.errors.minlength || associateId.errors.pattern">
+                                       Too short or invalid id!                         
+                                  </div>
+                          </div>
+                      </div>                    
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              First Name:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-user">
+                                  </i>
+                              </div>
+                              <input id="first-name" name="First_name" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.First_name" type="text"  formControlName="firstName" placeholder="Name (Full name)" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf=" firstName.touched && !firstName.valid">
+                                  <div *ngIf="firstName.errors.required">
+                                          FirstName is required.
+                                  </div>
+                                  <div *ngIf="firstName.errors.minlength || firstName.errors.pattern">
+                                       Too short or invalid name!                         
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4 form-group">
+                          <label for="name">
+                              Middle Name:</label>
+  
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-user">
+                                  </i>
+                              </div>
+                              <input id="middle-name" name="Middle_name" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Middle_name" type="text" formControlName="middleName" placeholder="Name (Full name)" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf=" middleName.touched && !middleName.valid">
+                                  <div *ngIf="middleName.errors.required">
+                                          middleName is required.
+                                  </div>
+                                  <div *ngIf="middleName.errors.minlength || middleName.errors.pattern">
+                                       Too short or invalid name!                         
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4 form-group">
+                          <label for="name">
+                              Last Name:</label>
+  
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-user">
+                                  </i>
+                              </div>
+                              <input id="last-name" name="Last_name" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Last_name" type="text" formControlName="lastName" placeholder="Name (Full name)" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf=" lastName.touched && !lastName.valid">
+                                  <div *ngIf="lastName.errors.required">
+                                          LastName is required.
+                                  </div>
+                                  <div *ngIf="lastName.errors.minlength || lastName.errors.pattern">
+                                       Too short or invalid name!                         
+                                  </div>
+                          </div>
+                      </div>
+                  </div>
+  
+                  <div class="row">
+                      <label class="col-md-3 control-label" for="Gender">Gender</label>
+                      <div class="col-md-4">
+                          <label class="radio-inline" for="Gender-0">
+                              <input type="radio" name="Gender" id="Gender-0" value="1" checked="checked"> Male
+                          </label>
+                          <label class="radio-inline" for="Gender-1">
+                              <input type="radio" name="Gender" id="Gender-1" value="2"> Female
+                          </label>
+                          <label class="radio-inline" for="Gender-2">
+                              <input type="radio" name="Gender" id="Gender-2" value="3"> Other
+                          </label>
+                      </div>
+                  </div>
+  
+                  <!-- Multiple Radios (inline) -->
+                  <div class="row">
+                      <label class="col-md-3 control-label" for="radios">Marital Status:</label>
+                      <div class="col-md-4">
+                          <label class="radio-inline" for="radios-0">
+                              <input type="radio" name="radios" id="radios-0" value="1" checked="checked"> Married
+                          </label>
+                          <label class="radio-inline" for="radios-1">
+                              <input type="radio" name="radios" id="radios-1" value="2"> Unmarried
+                          </label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              Email:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-envelope-o">
+                                  </i>
+                              </div>
+                              <input id="email" name="Email_Address" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Email_Address" type="text" formControlName="email" placeholder="email" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf=" email.touched && !email.valid">
+                                  <div *ngIf="email.errors.required">
+                                          Email is required.
+                                  </div>
+                                  <div *ngIf="email.errors.pattern">
+                                       invalid email!                         
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              Personal Email:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-envelope-o">
+                                  </i>
+                              </div>
+                              <input id="personal-email" name="Personal_Email" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Personal_Email" type="text" formControlName="personalEmail" placeholder="email" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf=" personalEmail.touched && !personalEmail.valid">
+                                  <div *ngIf="personalEmail.errors.required">
+                                          Email is required.
+                                  </div>
+                                  <div *ngIf="personalEmail.errors.pattern">
+                                       invalid email!                         
+                                  </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              Father name:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-male">
+                                      </i>
+                              </div>
+                              <input id="father-name" name="Father_Name" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Father_Name" type="text" formControlName="fatherName"  placeholder="fatherName" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf=" fatherName.touched && !fatherName.valid">
+                                  <div *ngIf="fatherName.errors.required">
+                                          FatherName is required.
+                                  </div>
+                                  <div *ngIf="fatherName.errors.minlength || fatherName.errors.pattern">
+                                       Too short or invalid name!                         
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4 form-group">
+                          <label for="name">
+                              Mother Name:</label>
+  
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa  fa-female">
+                                      </i>
+                              </div>
+                              <input id="mother-name" name="Mother_name" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Mother_name" type="text" formControlName="motherName" placeholder="motherName" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf="motherName.touched && !motherName.valid">
+                                  <div *ngIf="motherName.errors.required">
+                                          MotherName is required.
+                                  </div>
+                                  <div *ngIf="motherName.errors.minlength || motherName.errors.pattern">
+                                       Too short or invalid name!                         
+                                  </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              Phone(M):</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-mobile">
+                                      </i>
+                              </div>
+                              <input id="phone-number" name="Phone" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Phone" type="text" formControlName="phone" placeholder="PhoneNumber" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf="phone.touched && !phone.valid">
+                                  <div *ngIf="phone.errors.required">
+                                       Phone number is required!
+                                  </div>
+                                  <div *ngIf="phone.errors.maxlength || phone.errors.pattern">
+                                      invalid number!                         
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4 form-group">
+                          <label for="name">
+                              Phone(Home):</label>
+  
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-mobile">
+                                      </i>
+                              </div>
+                              <input id="phone-home" name="Phone_Home" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Phone_Home" type="text" formControlName="phoneHome" placeholder="Phone number" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf="phoneHome.touched && !phoneHome.valid">
+                                  <div *ngIf="phoneHome.errors.required">
+                                       Phone number is required!
+                                  </div>
+                                  <div *ngIf="phoneHome.errors.maxlength || phoneHome.errors.pattern">
+                                      invalid number!                         
+                                  </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              Date Of Birth:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-birthday-cake">
+                                      </i>
+                              </div>
+                              <input id="date-of-birth" name="Date_Of_Birth" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Date_Of_Birth" type="text"  formControlName="dob" placeholder="Date oF Birth" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf="dob.touched && !dob.valid">
+                                  <div *ngIf="dob.errors.required">
+                                       Date of Birth is required!
+                                  </div>
+                                  <div *ngIf="dob.errors.pattern">
+                                      Invalid Dob!                         
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              Date Of Joining:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-birthday-cake">
+                                  </i>
+                              </div>
+                              <input id="date-of-joining" name="Date_Of_Joining" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.Date_Of_Joining" type="text" formControlName="doj" placeholder="Date oF Joining" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf="doj.touched && !doj.valid">
+                                  <div *ngIf="doj.errors.required">
+                                       Date of Joining  is required!
+                                  </div>
+                                  <div *ngIf="doj.errors.pattern">
+                                      invalid date of joining!                         
+                                  </div>
+                          </div>
+  
+                      </div>
+                  </div>
+                  <div class="row">
+  
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              Blood Group:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-birthday-cake">
+                                      </i>
+                              </div>
+                              <input id="blood-group" name="blood_group" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.blood_group" type="text" formControlName="bloodGroup" placeholder="Date oF Birth" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf="bloodGroup.touched && !bloodGroup.valid">
+                                  <div *ngIf="bloodGroup.errors.required">
+                                       Blood Group  is required!
+                                  </div>
+                                  <div *ngIf="bloodGroup.errors.pattern">
+                                      invalid Blood Group!                         
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4 form-group">
+  
+                          <label for="name">
+                              Nationality:</label>
+                          <div class="input-group">
+                              <div class="input-group-addon">
+                                  <i class="fa fa-birthday-cake">
+                                      </i>
+                              </div>
+                              <input id="Nationality" name="nationality" [(ngModel)]="existing_emp_profile_info === null ? null : existing_emp_profile_info.nationality" type="text" formControlName="nationality" placeholder="Nationality" class="form-control input-md" [attr.disabled]="( play_with_profile_info_button_to == 'nutral' ) ? true : null">
+                          </div>
+                          <div class="alert alert-danger" 
+                              *ngIf="nationality.touched && !nationality.valid">
+                                  <div *ngIf="nationality.errors.required">
+                                          Nationality is required.
+                                  </div>
+                                  <div *ngIf="nationality.errors.minlength || nationality.errors.pattern">
+                                       Too short or invalid name!                         
+                                  </div>
+                          </div>
+  
+                      </div>
+                  </div>   
+                </div>
+              <div>
+                <button *ngIf="this.play_with_profile_info_button_to == 'create'" type="submit" [disabled]="formProfileInfo.invalid" class="btn btn-primary">Submit </button>               
+                <button *ngIf="this.play_with_profile_info_button_to == 'nutral'" class="btn btn-primary"  (click)="edit_form()">Update</button>
+                <button  *ngIf="this.play_with_profile_info_button_to == 'edit'" type="submit" [disabled]="formProfileInfo.invalid" class="btn btn-primary">Save</button>
+                <button  *ngIf="this.play_with_profile_info_button_to == 'edit'" class="btn btn-primary" (click)="cancel_edit()" >Cancel</button>
+              </div>
+          </form>
+      </div>
+    </div>
+  </div>  
+  

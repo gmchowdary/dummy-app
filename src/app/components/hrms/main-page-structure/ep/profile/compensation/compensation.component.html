@@ -148,16 +148,16 @@
                     
                     <!-- id null -->
                     
-                    <button *ngIf="this.play_with_button_to == 'create'" type="submit"  [disabled]="compensation.invalid" class="btn btn-primary" >Submit</button>
+                    <button *ngIf="this.play_with_button_to == 'create'" type="submit"  [disabled]="formcompensation.invalid" class="btn btn-primary" >Submit</button>
                     
                     <!-- IF nutral
-                        1st option_type="edit"
+                        1st option_type="update"
                         2nd form_disable
                         3rd submit_button hide
                         4th edit button enable
                     -->
-                        <button *ngIf="this.play_with_button_to == 'nutral'" class="btn btn-primary" (click)="edit_form()">Edit</button>
-                        <button *ngIf="this.play_with_button_to == 'edit'" type="submit"  [disabled]="compensation.invalid" class="btn btn-success">Update</button>
+                        <button *ngIf="this.play_with_button_to == 'nutral'" class="btn btn-primary" (click)="edit_form()">Update</button>
+                        <button *ngIf="this.play_with_button_to == 'edit'" type="submit"  [disabled]="formcompensation.invalid" class="btn btn-success">Save</button>
                         <button *ngIf="this.play_with_button_to == 'edit'" class="btn btn-primary"  (click)="cancel_edit()">Cancel</button>
                         
                         <!-- IF nutral

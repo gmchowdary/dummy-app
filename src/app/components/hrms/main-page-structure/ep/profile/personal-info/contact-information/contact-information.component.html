@@ -1,0 +1,386 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+      <h1>
+    Personal Information
+
+  </h1>
+      <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Profile</a></li>
+          <li class="active">Contact Information</li>
+      </ol>
+  </section>
+  <div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Contact Information</h3>
+
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+        <form [formGroup]="formcontactinfo"
+            (ngSubmit)="send()">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Emergency Contact number self:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="emergency-contact-number-self" name="emergency_contact_number_self" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.emergency_contact_number_self" formControlName="emergency_contact_number_self"   type="text"  placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                            <div class="alert alert-danger" 
+                            *ngIf="emergency_contact_number_self.touched && !emergency_contact_number_self.valid">
+                                <div *ngIf="emergency_contact_number_self.errors.required">
+                                    Phone number is required!
+                                </div>
+                                <div *ngIf="emergency_contact_number_self.errors.maxlength || emergency_contact_number_self.errors.pattern">
+                                    invalid number!                         
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Emergency Contact Number Alternate:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="emergency-contact-number-alternate" name="emergency_contact_number_alternate" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.emergency_contact_number_alternate" formControlName="emergency_contact_number_alternate" fromControlName="emergency_contact_number_alternate" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                        *ngIf="emergency_contact_number_alternate.touched && !emergency_contact_number_alternate.valid">
+                            <div *ngIf="emergency_contact_number_alternate.errors.required">
+                                Phone number is required!
+                            </div>
+                            <div *ngIf="emergency_contact_number_alternate.errors.maxlength || emergency_contact_number_alternate.errors.pattern">
+                                invalid number!                         
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Emergency Contact Email Self :</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa  fa-phone">
+                          </i>
+                            </div>
+                            <input id="emergency-contact-email-self " name="emergency_contact_email_self" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.emergency_contact_email_self" formControlName="emergency_contact_email_self"  type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf=" emergency_contact_email_self.touched && !emergency_contact_email_self.valid">
+                                <div *ngIf="emergency_contact_email_self.errors.required">
+                                        Email is required.
+                                </div>
+                                <div *ngIf="emergency_contact_email_self.errors.pattern">
+                                     invalid email!                         
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Emergency Contact Email Alternate:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa  fa-phone">
+                          </i>
+                            </div>
+                            <input id="emergency-contact-email-alternate" name="emergency_contact_email_alternate" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.emergency_contact_email_alternate" formControlName="emergency_contact_email_alternate"  type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="emergency_contact_email_alternate.touched && !emergency_contact_email_alternate.valid">
+                                <div *ngIf="emergency_contact_email_alternate.errors.required">
+                                        Email is required.
+                                </div>
+                                <div *ngIf="emergency_contact_email_alternate.errors.pattern">
+                                     invalid email!                         
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-sm-4 form-group">
+    
+                            <label for="name">
+                                Emergency Contact Relation :</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa  fa-phone">
+                              </i>
+                                </div>
+                                <input id="emergency-contact-relation " name="emergency_contact_relation" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.emergency_contact_relation" formControlName="emergency_contact_relation"  type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                            </div>
+                            <div class="alert alert-danger" 
+                                *ngIf=" emergency_contact_relation.touched && !emergency_contact_relation.valid">
+                                    <div *ngIf="emergency_contact_relation.errors.required">
+                                            Filed required.
+                                    </div>
+                                    <div *ngIf="emergency_contact_relation.errors.pattern">
+                                         invalid entry!                         
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 form-group">
+    
+                            <label for="name">
+                                Emergency Contact Number Relation:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa  fa-phone">
+                              </i>
+                                </div>
+                                <input id="emergency-contact-number-relation" name="emergency_contact_number_relation" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.emergency_contact_number_relation" formControlName="emergency_contact_number_relation"  type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                            </div>
+                            <div class="alert alert-danger" 
+                                *ngIf="emergency_contact_number_relation.touched && !emergency_contact_number_relation.valid">
+                                    <div *ngIf="emergency_contact_number_relation.errors.required">
+                                            Field required.
+                                    </div>
+                                    <div *ngIf="emergency_contact_number_relation.errors.pattern">
+                                         invalid entry!                         
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Facebook Id:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-facebook">
+                          </i>
+                            </div>
+                            <input id="facebook-Id" name="facebook_ID" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.facebook_ID" formControlName="facebook_ID" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="facebook_ID.touched && !facebook_ID.valid">
+                                <div *ngIf="facebook_ID.errors.required">
+                                    Facebook id is required!
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            LinkedIn Id:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa  fa-linkedin">
+                          </i>
+                            </div>
+                            <input id="linkedIn-Id" name="linkedIn_ID" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.linkedIn_ID" formControlName="linkedIn_ID" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="linkedIn_ID.touched && !linkedIn_ID.valid">
+                                <div *ngIf="linkedIn_ID.errors.required">
+                                    LinkedIn id is required!
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="row">
+                  <div class="col-sm-4 form-group">
+                    <h5>Present Address</h5>
+
+                  </div>
+                  <div class="col-sm-4 form-group">
+                      <h5>Permanent Address</h5>
+
+                    </div>
+                </div>-->
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Address 1:</label>
+                        <div class="input-group">
+                            <!--<div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>-->
+                            <textarea class="input100" name="address1" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.address1" formControlName="address1" placeholder="Your Message" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null"></textarea>
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="address1.touched && !address1.valid">
+                                <div *ngIf="address1.errors.required">
+                                    Address is required!
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Address 2:</label>
+                        <div class="input-group">
+                            <!--<div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>-->
+                            <textarea class="input100" name="address2" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.address2" formControlName="address2" placeholder="Your Message" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null"></textarea>
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="address2.touched && !address2.valid">
+                                <div *ngIf="address2.errors.required">
+                                    Address is required!
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Address 3:</label>
+                        <div class="input-group">
+                            <!--<div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>-->
+                            <textarea class="input100" name="address3" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.address3" formControlName="address3" placeholder="Your Message" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null"></textarea>
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="address2.touched && !address2.valid">
+                                <div *ngIf="address2.errors.required">
+                                    Address is required!
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Landmark:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="landmark" name="landmark" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.landmark" formControlName="landmark" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="landmark.touched && !landmark.valid">
+                                <div *ngIf="landmark.errors.required">
+                                    Landmark is required!
+                                </div>
+                                <div *ngIf="landmark.errors.pattern">
+                                        Invalid entry!
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            City:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="city" name="city" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.city" formControlName="city" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="city.touched && !city.valid">
+                                <div *ngIf="city.errors.required">
+                                    City is required!
+                                </div>
+                                <div *ngIf="city.errors.pattern">
+                                        Invalid entry!
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            State:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="state" name="state" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.state" formControlName="state" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="state.touched && !state.valid">
+                                <div *ngIf="state.errors.required">
+                                    State is required!
+                                </div>
+                                <div *ngIf="state.errors.pattern">
+                                        Invalid entry!
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Country:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="country" name="country" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.country" formControlName="country" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="country.touched && !country.valid">
+                                <div *ngIf="country.errors.required">
+                                    Country is required!
+                                </div>
+                                <div *ngIf="country.errors.pattern">
+                                        Invalid entry!
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                            Zip Code:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="zip-code" name="zipcode" [(ngModel)]="existing_emp_contact_info === null ? null : existing_emp_contact_info.zipcode" formControlName="zipcode"  type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_contact_info_button_to == 'nutral' ) ? true : null">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="zipcode.touched && !zipcode.valid">
+                                <div *ngIf="zipcode.errors.required">
+                                    Zipcode is required!
+                                </div>
+                                <div *ngIf="zipcode.errors.pattern">
+                                        invalid entry!
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <button *ngIf="this.play_with_contact_info_button_to == 'create'" type="submit" [disabled]="formcontactinfo.invalid" class="btn btn-primary">Submit </button>
+                
+                <button *ngIf="this.play_with_contact_info_button_to == 'nutral'" class="btn btn-primary"  (click)="edit_form()">Update</button>
+                <button  *ngIf="this.play_with_contact_info_button_to == 'edit'" type="submit" [disabled]="formcontactinfo.invalid" class="btn btn-primary">Save</button>
+                <button  *ngIf="this.play_with_contact_info_button_to == 'edit'" class="btn btn-primary" (click)="cancel_edit()" >Cancel</button>
+
+            </div>
+        </form>
+    </div>
+  </div>
+</div>  

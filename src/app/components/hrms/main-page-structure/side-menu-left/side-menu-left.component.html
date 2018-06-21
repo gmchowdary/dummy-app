@@ -36,16 +36,34 @@
         <li><a href="#" routerLink="/about"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
       </ul>
     </li>
-    <li>
-      <a [routerLink]="['/mails']">
-        <i class="fa fa-envelope"></i> <span>Mails</span>
-        <span class="pull-right-container">
-          <small class="label pull-right bg-yellow">12</small>
-          <small class="label pull-right bg-green">16</small>
-          <small class="label pull-right bg-red">5</small>
-        </span>
-      </a>
-    </li>
+      <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Mails</span>
+            <span class="pull-right-container">
+                <small class="label pull-right bg-yellow">12</small>
+                <small class="label pull-right bg-green">16</small>
+                <small class="label pull-right bg-red">5</small>
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a [routerLink]="['/compose']">
+                <i class="fa fa-circle-o"></i>Compose
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/inbox']">
+                <i class="fa fa-circle-o"></i> Inbox
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/read']">
+                <i class="fa fa-circle-o"></i> Read
+              </a>
+            </li>
+          </ul>  
+      </li>
     <li>
       <a [routerLink]="['/calender']">
         <i class="fa fa-calendar"></i> <span>Calendar</span>
@@ -124,10 +142,61 @@
             <i class="fa fa-circle-o"></i> Insurance
           </a>
         </li>
-        <li>
-          <a [routerLink]="['/personal-info']">
-            <i class="fa fa-circle-o"></i> Personal-info
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Personal Info</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li>
+              <a [routerLink]="['/certifications']">
+                <i class="fa fa-circle-o"></i> Certifications
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/company-details']">
+                <i class="fa fa-circle-o"></i> Company Details
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/contact-information']">
+                <i class="fa fa-circle-o"></i> Contact Information
+              </a>
+            </li>            
+            <li>
+              <a [routerLink]="['/educational-information']">
+                <i class="fa fa-circle-o"></i> Educational Information
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/previous-organizations']">
+                <i class="fa fa-circle-o"></i> Previous Organizations
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                  <i class="fa fa-share"></i> <span>User-Profile</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+              </a>
+              <ul class="treeview-menu">
+                  
+                  <li>
+                    <a [routerLink]="['/profile-info']">
+                      <i class="fa fa-circle-o"></i> Profile info
+                    </a>
+                  </li>
+                  <li>
+                      <a [routerLink]="['/id-proofs']">
+                        <i class="fa fa-circle-o"></i> Id Proofs
+                      </a>
+                  </li>
+              </ul>    
+            </li>
+          </ul>
         </li>
         <li>
           <a [routerLink]="['/travel']">

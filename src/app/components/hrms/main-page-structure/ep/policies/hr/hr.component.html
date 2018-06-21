@@ -1,20 +1,18 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-      Leave
-
-    </h1>
+        
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Hr </a></li>
-            <li class="active">Policies</li>
+            <li class="active"></li>
         </ol>
     </section>
     <div class="box-body">
-        <form class="form-row">
+        <form [formGroup]="formHr"
+              (ngSubmit)="send()">
             <div class="form-group">
                 <div class="col-xs-12">
-                    <div class="box">
+                    <div clnass="box">
                       <div class="box-header">
                         <h3 class="box-title">Hr Policies</h3>
                       </div>
@@ -31,9 +29,43 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <td>GeethSoft</td>
-                              <td> </td>
-                              <td></td>
+                              <td>
+                                <input id="name" name="name" [(ngModel)]="existing_emp_hr === null ? null : existing_emp_hr.name" type="text" placeholder="" formControlName="name" class="form-control input-md" [attr.disabled]="( play_with_hr_button_to == 'nutral' ) ? true : null">
+                                <div class="alert alert-danger" 
+                                    *ngIf="name.touched && !name.valid">
+                                      <div *ngIf="name.errors.required">
+                                          Name is required!
+                                      </div>
+                                      <div *ngIf="name.errors.pattern">
+                                          invalid Name!                         
+                                      </div>
+                                </div>
+                              </td>
+                              <td>
+                                  <input id="valid-from-date" name="valid_from_date" [(ngModel)]="existing_emp_hr === null ? null : existing_emp_hr.valid_from_date" type="text" placeholder="" formControlName="validFromDate" class="form-control input-md" [attr.disabled]="( play_with_hr_button_to == 'nutral' ) ? true : null">
+                                  <div class="alert alert-danger" 
+                                    *ngIf="validFromDate.touched && !validFromDate.valid">
+                                      <div *ngIf="validFromDate.errors.required">
+                                          Date is required!
+                                      </div>
+                                      <div *ngIf="validFromDate.errors.pattern">
+                                          invalid date!                         
+                                      </div>
+                                  </div>
+                              </td>                               
+                              <td>
+                                  <input id="valid_upto_date" name="valid_upto_date" [(ngModel)]="existing_emp_hr === null ? null : existing_emp_hr.valid_upto_date" type="text" placeholder="" formControlName="validUptoDate" class="form-control input-md" [attr.disabled]="( play_with_hr_button_to == 'nutral' ) ? true : null">
+                                  <div class="alert alert-danger" 
+                                    *ngIf="validUptoDate.touched && !validUptoDate.valid">
+                                      <div *ngIf="validUptoDate.errors.required">
+                                          Date is required!
+                                      </div>
+                                      <div *ngIf="validUptoDate.errors.pattern">
+                                          invalid date!                         
+                                      </div>
+                                  </div>
+                              </td>
+                              
                               <td><button type="button" class="btn btn-box-tool" data-widget="collapse">
                                   <i class="fa  fa-eye">&nbsp;</i><i class="fa fa-download"></i></button> 
                                 </td>
@@ -43,6 +75,10 @@
                     </div>
                 </div>
               </div>
+              <button  *ngIf="this.play_with_hr_button_to == 'create'" type="submit" [disabled]="formHr.invalid" class="btn btn-primary">Submit</button>
+                  <button  *ngIf="this.play_with_hr_button_to == 'nutral'" class="btn btn-primary" (click)="edit_form()">Update</button>
+                  <button *ngIf="this.play_with_hr_button_to == 'edit'" type="submit" [disabled]="formHr.invalid" class="btn btn-primary">Save</button>
+                  <button  *ngIf="this.play_with_hr_button_to == 'edit'" class="btn btn-primary" (click)="cancel_edit()">Cancel</button>
           </div>
         </form>
     </div>                        

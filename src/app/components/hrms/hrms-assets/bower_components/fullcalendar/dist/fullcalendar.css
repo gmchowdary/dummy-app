@@ -191,11 +191,14 @@ hr.fc-divider {
   right: 0; }
 
 .fc-bg {
-  bottom: 0;
+  width: 809px;
+  height: 96px;
+  
   /* strech bg to bottom edge */ }
 
 .fc-bg table {
-  height: 100%;
+  width: 809px;
+  height: 96px;
   /* strech bg to bottom edge */ }
 
 /* Tables

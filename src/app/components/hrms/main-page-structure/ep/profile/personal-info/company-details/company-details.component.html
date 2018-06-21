@@ -1,0 +1,219 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+      <!--<h1>
+    Personal Information
+
+  </h1>-->
+      <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Profile</a></li>
+          <li class="active">Company Details</li>
+      </ol>
+  </section>
+  <div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Company Details</h3>
+
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+        <form [formGroup]="formCompanyDetails">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                           Company:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-building">
+                          </i>
+                            </div>
+                            <input id="company" name="company" type="text" formControlName="company" placeholder="Company name" class="form-control input-md">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="company.touched && !company.valid">
+                                <div *ngIf="company.errors.required">
+                                    Company is required!
+                                </div>
+                                <div *ngIf="company.errors.pattern">
+                                    invalid Name!                         
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                           Unit:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="unit" name="unit" type="text" formControlName="unit" placeholder="" class="form-control input-md">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="unit.touched && !unit.valid">
+                                <div *ngIf="unit.errors.required">
+                                   Unit is required!
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                           Track:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-location-arrow">
+                          </i>
+                            </div>
+                            <input id="track" name="track" type="text" formControlName="track" placeholder="Track" class="form-control input-md">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="track.touched && !track.valid">
+                                <div *ngIf="track.errors.required">
+                                    Track is required!
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                           Designation:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-mortar-board">
+                          </i>
+                            </div>
+                            <input id="designation" name="designation" type="text" formControlName="designation" placeholder="" class="form-control input-md">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="designation.touched && !designation.valid">
+                                <div *ngIf="designation.errors.required">
+                                        Designation is required!
+                                </div>
+                                <div *ngIf="designation.errors.pattern">
+                                    Invalid Entry!                         
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                           Employment Type:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="employment-type" name="employment_type" type="text" formControlName="employmentType" placeholder="" class="form-control input-md">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="employmentType.touched && !employmentType.valid">
+                                <div *ngIf="employmentType.errors.required">
+                                        EmploymentType required!
+                                </div>
+                                <div *ngIf="employmentType.errors.pattern">
+                                    invalid Entry!                         
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                           Reporting Manager:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user">
+                          </i>
+                            </div>
+                            <input id="reporting-manager" name="reporting_manager" type="text" formControlName="reportingManager" placeholder="" class="form-control input-md">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="reportingManager.touched && !reportingManager.valid">
+                                <div *ngIf="reportingManager.errors.required">
+                                    Field required!
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                           Location:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-map-marker">
+                          </i>
+                            </div>
+                            <input id="location" name="location" type="text" formControlName="location" placeholder="" class="form-control input-md">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="location.touched && !location.valid">
+                                <div *ngIf="location.errors.required">
+                                    Location required!
+                                </div>
+                                <div *ngIf="location.errors.pattern">
+                                    Invalid Entry!                         
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                           EP Access:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-fighter-jet">
+                          </i>
+                            </div>
+                            <input id="EP-access" name="EP_access" type="text" formControlName="EPAccess" placeholder="" class="form-control input-md">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="EPAccess.touched && !EPAccess.valid">
+                                <div *ngIf="EPAccess.errors.required">
+                                    Field required!
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+
+                        <label for="name">
+                           Experience:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-asterisk">
+                          </i>
+                            </div>
+                            <input id="experience" name="experience" type="text" formControlName="experience" placeholder="" class="form-control input-md">
+                        </div>
+                        <div class="alert alert-danger" 
+                            *ngIf="experience.touched && !experience.valid">
+                                <div *ngIf="experience.required">
+                                    Phone number is required!
+                                </div>
+                                <div *ngIf="experience.errors.pattern">
+                                    Invalid Entry!                         
+                                </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>  

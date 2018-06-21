@@ -1,0 +1,130 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+      <h1>
+  Personal Information
+
+</h1>
+      <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Personal Information</li>
+      </ol>
+  </section>
+  <div class="box">
+      <div class="box-header with-border">
+          <h3 class="box-title">Previous Organizations</h3>
+
+          <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+      </div>
+      <div class="box-body">
+          <form [formGroup]="formPreviousOrganization"
+                    (ngSubmit)="send()" >
+              <div class="form-group">
+                  <table id="example2" class="table table-bordered table-hover">
+                      <thead>
+                          <tr>
+                              <th>Organzation Name</th>
+                              <th>Designation</th>
+                              <th>From(MM-YYYY)</th>
+                              <th>To(MM-YYYY)</th>
+                              <th>Reference Name</th>
+                              <th>Reference Contact</th>
+                              <th>
+                                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                      <i class="fa fa-plus"></i></button>
+                              </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>
+                                  <input id="organization-name" name="organization_name" [(ngModel)]="existing_emp_previous_organization === null ? null : existing_emp_previous_organization.organization_name" type="text" formControlName="organizationName" placeholder="" class="form-control input-md" [attr.disabled]="(play_with_previous_organization_button_to == 'nutral' ) ? true : null">
+                                  <div class="alert alert-danger" 
+                                    *ngIf="organizationName.touched && !organizationName.valid">
+                                      <div *ngIf="organizationName.errors.required">
+                                         OrganizationName is required!
+                                      </div>
+                                      <div *ngIf="organizationName.errors.pattern">
+                                              Invalid entry!
+                                      </div>
+                                  </div>
+                              </td>
+
+                              <td>
+                                <input id="designation" name="designation" [(ngModel)]="existing_emp_previous_organization === null ? null : existing_emp_previous_organization.designation" type="text" placeholder="" formControlName="designation" class="form-control input-md" [attr.disabled]="(play_with_previous_organization_button_to == 'nutral' ) ? true : null">
+                                    <div class="alert alert-danger" 
+                                        *ngIf="designation.touched && !designation.valid">
+                                        <div *ngIf="designation.errors.required">
+                                                Designation is required!
+                                        </div>
+                                        <div *ngIf="designation.errors.pattern">
+                                                Invalid entry!
+                                        </div>
+                                    </div>
+                              </td>
+                              <td>
+                                  <input id="from" name="from" [(ngModel)]="existing_emp_previous_organization === null ? null : existing_emp_previous_organization.from" type="text" placeholder="" formControlName="from" class="form-control input-md" [attr.disabled]="(play_with_previous_organization_button_to == 'nutral' ) ? true : null">
+                                    <div class="alert alert-danger" 
+                                        *ngIf="from.touched && !from.valid">
+                                        <div *ngIf="from.errors.required">
+                                                Date required!
+                                        </div>
+                                        <div *ngIf="from.errors.pattern">
+                                                Invalid entry dd/mm/yyyy!
+                                        </div>
+                                    </div>
+                              </td>
+                              <td>
+                                  <input id="to" name="to" [(ngModel)]="existing_emp_previous_organization === null ? null : existing_emp_previous_organization.to" type="text" placeholder="" formControlName="to" class="form-control input-md" [attr.disabled]="(play_with_previous_organization_button_to == 'nutral' ) ? true : null">
+                                    <div class="alert alert-danger" 
+                                        *ngIf="to.touched && !to.valid">
+                                        <div *ngIf="to.errors.required">
+                                                TO required!
+                                        </div>
+                                        <div *ngIf="to.errors.pattern">
+                                                Invalid entry dd/mm/yyyy!
+                                        </div>
+                                    </div>
+                              </td>
+                              <td>
+                                <input id="reference-name" name="reference_name" [(ngModel)]="existing_emp_previous_organization === null ? null : existing_emp_previous_organization.reference_name" type="text" placeholder="" formControlName="referenceName" class="form-control input-md" [attr.disabled]="(play_with_previous_organization_button_to == 'nutral' ) ? true : null">
+                                <div class="alert alert-danger" 
+                                    *ngIf="referenceName.touched && !referenceName.valid">
+                                    <div *ngIf="referenceName.errors.required">
+                                            ReferenceName is required!
+                                    </div>
+                                    <div *ngIf="referenceName.errors.pattern">
+                                            Invalid entry!
+                                    </div>
+                                </div>
+                              </td>
+                               <td>
+                                    <input id="reference-contact" name="reference_contact" [(ngModel)]="existing_emp_previous_organization === null ? null : existing_emp_previous_organization.reference_contact" type="text" formControlName="referenceContact" placeholder="" class="form-control input-md" [attr.disabled]="(play_with_previous_organization_button_to == 'nutral' ) ? true : null">
+                                        <div class="alert alert-danger" 
+                                            *ngIf="referenceContact.touched && !referenceContact.valid">
+                                            <div *ngIf="referenceContact.errors.required">
+                                                    ReferenceContact is required!
+                                            </div>
+                                            <div *ngIf="referenceContact.errors.pattern">
+                                                    Invalid entry!
+                                            </div>
+                                        </div>
+                               </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+                <button *ngIf="this.play_with_previous_organization_button_to == 'create'" type="submit"  class="btn btn-primary">Submit</button>
+                <button *ngIf="this.play_with_previous_organization_button_to == 'nutral'" (click)="edit_form" class="btn btn-primary">Update</button>
+                <button *ngIf="this.play_with_previous_organization_button_to == 'edit'" type="submit"  class="btn btn-primary">Save</button>
+                <button *ngIf="this.play_with_previous_organization_button_to == 'edit'" (click)="cancel_edit()" class="btn btn-primary">Cancel</button>
+          </form>
+      </div>
+  </div>
+</div>

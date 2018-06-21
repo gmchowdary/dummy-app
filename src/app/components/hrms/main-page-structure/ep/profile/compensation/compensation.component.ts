@@ -13,7 +13,7 @@ export class CompensationComponent implements OnInit {
   formcompensation: FormGroup;
   existing_emp_compensation = null;
   existing_emp_compensation_backup = null;
-  id = null;
+  id = 1;
   play_with_button_to = this.id === null ? "create" : "nutral" ; //"edit"
   
   edit_form(){

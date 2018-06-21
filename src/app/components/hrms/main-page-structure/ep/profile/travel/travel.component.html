@@ -1,3 +1,89 @@
-<p>
-  travel works!
-</p>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+      <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Profile</a></li>
+          <li class="active">Travel</li>
+      </ol>
+  </section>
+  <div class="box">
+      <div class="box-header with-border">
+          <h3 class="box-title">Valid Visa(s) Possessed</h3>
+
+          <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+      </div>
+      <div class="box-body">
+          <form  [formGroup]="formTravel"
+            (ngSubmit)="send()">
+              <div class="form-group">
+                  <table id="example2" class="table table-bordered table-hover">
+                      <thead>
+                          <tr>
+                              <th>Permitted Countries</th>
+                              <th>Visa Type</th>
+                              <th>Valid From</th>
+                              <th>Valid Through(MM-YYYY)</th>
+                              <th>Sponsered By</th>
+                              <th>No. Of Entries</th>
+                              <th>Valid DL</th>
+                              <th>
+                                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                      <i class="fa fa-plus"></i></button>
+                          </tr>
+                      </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div [(ngModel)]="existing_emp_travel === null ? null : existing_emp_travel.select" [attr.disabled]="( play_with_travel_button_to == 'nutral' ) ? true : null"  >
+                                      <select class="form-control">
+                                          <option>Select</option>
+                                          <option>India</option>
+                                          <option>US</option>
+                                          <option>Canada</option>
+                                          <option>UK</option>
+                                      </select>
+                                    </div>
+                                </td>                                                                     
+                                <td>
+                                  <div [(ngModel)]="existing_emp_travel === null ? null : existing_emp_travel.select" [attr.disabled]="( play_with_travel_button_to == 'nutral' ) ? true : null"  >
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>B-1</option>
+                                        <option>Business</option>
+                                        <option>H-1B</option>
+                                        <option>L-1</option>
+                                        <option>Schengen</option>
+                                    </select>
+                                  </div>
+                                </td>
+                                <td> 
+                                    <input id="valid-from" name="valid_from" [(ngModel)]="existing_emp_travel === null ? null : existing_emp_travel.valid_from" formControlName="validFrom" type="text"  placeholder="" class="form-control input-md" [attr.disabled]="( play_with_travel_button_to == 'nutral' ) ? true : null"  >
+                                </td>
+                                <td> 
+                                    <input id="valid-through" name="valid_through" [(ngModel)]="existing_emp_travel === null ? null : existing_emp_travel.valid_through" formControlName="validThrough" type="text"  placeholder="" class="form-control input-md" [attr.disabled]="( play_with_travel_button_to == 'nutral' ) ? true : null"  > 
+                                </td>
+                                <td>
+                                    <input id="sponsered-by" name="sponsered_by" [(ngModel)]="existing_emp_travel === null ? null : existing_emp_travel.sponsered_by" formControlName="sponseredBy" type="text"  placeholder="" class="form-control input-md" [attr.disabled]="( play_with_travel_button_to == 'nutral' ) ? true : null" >
+                                </td>
+                                <td>
+                                  <input type="radio" id="no-of-entries" name="no_of_entries" class="radio-inline">Single
+                                  <input type="radio" class="radio-inline" id="no-of-entries" name="no_of_entries">Multiple
+                                 </td>
+                            </tr>
+                        </tbody>
+                  </table>
+                  <button  *ngIf="this.play_with_travel_button_to == 'create'" type="submit" [disabled]="formTravel.invalid" class="btn btn-primary">Submit</button>
+                  <button  *ngIf="this.play_with_travel_button_to == 'nutral'" class="btn btn-primary" (click)="edit_form()">Update</button>
+                  <button *ngIf="this.play_with_travel_button_to == 'edit'" type="submit" [disabled]="formTravel.invalid" class="btn btn-primary">Save</button>
+                  <button  *ngIf="this.play_with_travel_button_to == 'edit'" class="btn btn-primary" (click)="cancel_edit()">Cancel</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

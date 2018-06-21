@@ -1,0 +1,235 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Id Proofs
+
+    </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Id Proofs</li>
+        </ol>
+    </section>
+    <form [formGroup]="formIdProof"
+            (ngSubmit)="send()">
+        <div class="row">
+
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    UAN No:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-credit-card">
+                            </i>
+                    </div>
+                    <input id="UAN-No" name="UAN_No" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.UAN_No" formControlName="uanNo" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="uanNo.touched && !uanNo.valid">
+                    <div *ngIf="uanNo.errors.required">
+                        UAN No is required.
+                    </div>
+                    <div *ngIf="uanNo.errors.pattern">
+                        invalid no!
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    VoterCard No:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-credit-card">
+                            </i>
+                    </div>
+                    <input id="voter-card-no" name="voter_Card_No" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.voter_Card_No" formControlName="voterCardNo" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="voterCardNo.touched && !voterCardNo.valid">
+                    <div *ngIf="voterCardNo.errors.required">
+                        VoterCard number is required.
+                    </div>
+                    <div *ngIf="voterCardNo.errors.pattern">
+                        invalid card no!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    Adhaar Card No:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-credit-card">
+                            </i>
+                    </div>
+                    <input id="adhaar-card-no" name="adhaar_card_no" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.adhaar_card_no" formControlName="adhaarCardNo" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="adhaarCardNo.touched && !adhaarCardNo.valid">
+                    <div *ngIf="adhaarCardNo.errors.required">
+                        Adhaar Card is required.
+                    </div>
+                    <div *ngIf="adhaarCardNo.errors.pattern">
+                        Invalid card no!
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    Name As Per Adhaar Card:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-pencil-square">
+                            </i>
+                    </div>
+                    <input id="name-as-per-adhaar-card" name="name_as_per_adhaar_card" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.name_as_per_adhaar_card" formControlName="nameAsPerAdhaarCard" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="nameAsPerAdhaarCard.touched && !nameAsPerAdhaarCard.valid">
+                    <div *ngIf="nameAsPerAdhaarCard.errors.required">
+                        Adhaar is required.
+                    </div>
+                    <div *ngIf="nameAsPerAdhaarCard.errors.pattern">
+                        invalid name!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    Driving Licence No:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-credit-card">
+                            </i>
+                    </div>
+                    <input id="driving-licence-no" name="driving_licence_no" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.driving_licence_no" formControlName="dlNumber" type="text" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="dlNumber.touched && !dlNumber.valid">
+                    <div *ngIf="dlNumber.errors.required">
+                        DL is required.
+                    </div>
+                    <div *ngIf="dlNumber.errors.pattern">
+                        invalid no!
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    DL Expiry Date:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-birthday-cake">
+                            </i>
+                    </div>
+                    <input id="dl-expiry-date" name="dl_expiry_date" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.dl_expiry_date" type="text" formControlName="dlExpiryDate" placeholder="" class="form-control input-md"[attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="dlExpiryDate.touched && !dlExpiryDate.valid">
+                    <div *ngIf="dlExpiryDate.errors.required">
+                        Date is required!
+                    </div>
+                    <div *ngIf="dlExpiryDate.errors.pattern">
+                        invalid date dd/mm/yyyy!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    PAN Card:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-credit-card">
+                            </i>
+                    </div>
+                    <input id="PAN-card" name="pan_card" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.pan_card" type="text" formControlName="panCard" placeholder="" class="form-control input-md"[attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="panCard.touched && !panCard.valid">
+                    <div *ngIf="panCard.errors.required">
+                        PAN is required.
+                    </div>
+                    <div *ngIf="panCard.errors.pattern">
+                        Invalid Card!
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    Name As Per PAN Card:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-pencil-square">
+                            </i>
+                    </div>
+                    <input id="name-as-per-PAN-card" name="name_as_per_PAN_card" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.name_as_per_PAN_card" type="text" formControlName="nameAsPerPanCard" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="nameAsPerPanCard.touched && !nameAsPerPanCard.valid">
+                    <div *ngIf="nameAsPerPanCard.errors.required">
+                        Name is required.
+                    </div>
+                    <div *ngIf="nameAsPerPanCard.errors.pattern">
+                        Invalid Name!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    Passport No:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-birthday-cake">
+                            </i>
+                    </div>
+                    <input id="passport-no" name="passport_no" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.passport_no" type="text" formControlName="passportNo" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="passportNo.touched && !passportNo.valid">
+                    <div *ngIf="passportNo.errors.required">
+                        Passport is required.
+                    </div>
+                    <div *ngIf="passportNo.errors.pattern">
+                        Too short or invalid name!
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 form-group">
+
+                <label for="name">
+                    Passport Valid To:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-birthday-cake">
+                            </i>
+                    </div>
+                    <input id="passport-valid-to" name="passport_valid_to" [(ngModel)]="existing_emp_id_proofs === null ? null : existing_emp_id_proofs.passport_valid_to" type="text" formControlName="passportValidTo" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_id_proofs_button_to == 'nutral' ) ? true : null">
+                </div>
+                <div class="alert alert-danger" *ngIf="passportValidTo.touched && !passportValidTo.valid">
+                    <div *ngIf="passportValidTo.errors.required">
+                        Passport valid is required!
+                    </div>
+                    <div *ngIf="passportValidTo.errors.pattern">
+                        invalid date dd/mm/yyyy!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button *ngIf="this.play_with_id_proofs_button_to == 'create'" type="submit" [disabled]="formIdProof.invalid" class="btn btn-primary">Submit </button>               
+        <button *ngIf="this.play_with_id_proofs_button_to == 'nutral'" class="btn btn-primary"  (click)="edit_form()">Update</button>
+        <button  *ngIf="this.play_with_id_proofs_button_to == 'edit'" type="submit" [disabled]="formIdProof.invalid" class="btn btn-primary">Save</button>
+        <button  *ngIf="this.play_with_id_proofs_button_to == 'edit'" class="btn btn-primary" (click)="cancel_edit()" >Cancel</button>
+  </form>
+</div>  

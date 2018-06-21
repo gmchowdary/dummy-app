@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+
+
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';  
 
@@ -47,12 +49,40 @@ import { TaskTrackerComponent } from './ep/task-tracker/task-tracker.component';
 import { PayManageComponent } from './ep/pay-manage/pay-manage.component';
 
 
-import {CompensationService} from '../main-page-structure/ep-services/profile/compensation.service'
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CompensationService } from '../main-page-structure/ep-services/profile/compensation.service';
+import { UserProfileComponent } from './ep/profile/personal-info/user-profile/user-profile.component';
+import { CompanyDetailsComponent } from './ep/profile/personal-info/company-details/company-details.component';
+import { ContactInformationComponent } from './ep/profile/personal-info/contact-information/contact-information.component';
+import { EducationalInformationComponent } from './ep/profile/personal-info/educational-information/educational-information.component';
+import { CertificationsComponent } from './ep/profile/personal-info/certifications/certifications.component';
+import { PreviousOrganizationsComponent } from './ep/profile/personal-info/previous-organizations/previous-organizations.component'
+import { ContactInformationService } from './ep-services/profile/contact-information.service';
+import { CertificationsService } from './ep-services/profile/certifications.service';
+import { EducationalInformationService } from './ep-services/profile/educational-information.service';
+import { LeaveService } from './ep-services/profile/leave.service';
+import { PreviousOrganizationsService } from './ep-services/profile/previous-organizations.service';
+import { HrService } from './ep-services/profile/hr.service';
+import { ProfileInfoComponent } from './ep/profile/personal-info/user-profile/profile-info/profile-info.component';
+import { IdProofsComponent } from './ep/profile/personal-info/user-profile/id-proofs/id-proofs.component';
+import { IdProofsService } from './ep-services/profile/id-proofs.service';
+import { ProfileInfoService } from './ep-services/profile/profile-info.service';
+import { TravelService } from './ep-services/profile/travel.service';
+import { InboxComponent } from './page-bodies/mails/inbox/inbox.component';
+import { ComposeComponent } from './page-bodies/mails/compose/compose.component';
+import { ReadComponent } from './page-bodies/mails/read/read.component';
+
 
 const appServices = [
   CompensationService,
+  ContactInformationService,
+  CertificationsService,
+  EducationalInformationService,
+  LeaveService,
+  PreviousOrganizationsService,
+  HrService,
+  IdProofsService,
+  ProfileInfoService,
+  TravelService
 ]
 
 const appRoutes: Routes = [
@@ -78,6 +108,19 @@ const appRoutes: Routes = [
   {path: "it", component:ItComponent},
   {path: "nomination", component:NominationComponent},
   {path: "policies", component:PoliciesComponent},
+  {path: "certifications", component:CertificationsComponent},
+  {path: "company-details", component:CompanyDetailsComponent},
+  {path: "contact-information", component:ContactInformationComponent},
+  {path: "educational-information", component:EducationalInformationComponent},
+  {path: "previous-organizations", component:PreviousOrganizationsComponent},
+  {path: "user-profile", component:UserProfileComponent},
+  {path: "profile-info", component:ProfileInfoComponent},
+  {path: "id-proofs", component:IdProofsComponent},
+  {path: "compose", component:ComposeComponent},
+  {path: "inbox", component:InboxComponent},
+  {path: "read", component:ReadComponent}
+
+
   
 ]
 
@@ -123,19 +166,24 @@ const appRoutes: Routes = [
     ActivityTrackerComponent,
     TaskTrackerComponent,
     PayManageComponent,
+    UserProfileComponent,
+    CompanyDetailsComponent,
+    ContactInformationComponent,
+    EducationalInformationComponent,
+    CertificationsComponent,
+    PreviousOrganizationsComponent,
+    ProfileInfoComponent,
+    IdProofsComponent,
+    InboxComponent,
+    ComposeComponent,
+    ReadComponent,
  ],
   imports: [
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: `reload`}),
     HttpModule,
-<<<<<<< HEAD
-    ReactiveFormsModule,
-    FormsModule,
-    CommonModule
-=======
     CommonModule,
     FormsModule,
     ReactiveFormsModule
->>>>>>> 38e228a63957033612cdda6982cfeec6f3a576b9
   ],
   providers: [HttpModule,appServices],
   bootstrap: [MainPageStructureComponent],

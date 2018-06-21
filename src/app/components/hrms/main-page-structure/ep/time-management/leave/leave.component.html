@@ -12,7 +12,8 @@
             </ol>
         </section>
         <div class="box-body">
-            <form class="form-row">
+            <form [formGroup]="formLeave"
+                   (ngSubmit)="send()">
                 <div class="form-group">
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
@@ -40,9 +41,17 @@
                                     <i class="fa fa-calendar-plus-o">
                                   </i>
                                 </div>
-                                <input id="From Date)" name="From Date" type="text" placeholder="" class="form-control input-md">
+                                <input id="from-date" name="from_date" [(ngModel)]="existing_emp_leave === null ? null : existing_emp_leave.from_date" type="text" formControlName="fromDate" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_leave_button_to == 'nutral' ) ? true : null">
                             </div>
-    
+                            <div class="alert alert-danger" 
+                                *ngIf="fromDate.touched && !fromDate.valid">
+                                <div *ngIf="fromDate.errors.required">
+                                     Date is required!
+                                </div>
+                                <div *ngIf="fromDate.errors.pattern">
+                                    invalid date!                         
+                                </div>
+                            </div>
                         </div>
                         <div class="col-sm-4 form-group">
     
@@ -53,9 +62,17 @@
                                     <i class="fa fa-calendar-plus-o">
                                       </i>
                                 </div>
-                                <input id="To Date" name="To Date" type="text" placeholder="" class="form-control input-md">
+                                <input id="to-date" name="to_date" [(ngModel)]="existing_emp_leave === null ? null : existing_emp_leave.to_date" type="text" formControlName="toDate" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_leave_button_to == 'nutral' ) ? true : null">
                             </div>
-    
+                            <div class="alert alert-danger" 
+                                *ngIf="toDate.touched && !toDate.valid">
+                                <div *ngIf="toDate.errors.required">
+                                     Date is required!
+                                </div>
+                                <div *ngIf="toDate.errors.pattern">
+                                    invalid date!                         
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,11 +100,24 @@
                                     <i class="fa fa-phone">
                                   </i>
                                 </div>
-                                <input id="Emergency Phone" name="Emergency Phone" type="text" placeholder="" class="form-control input-md">
+                                <input id="emergency-phone" name="emergency_no" [(ngModel)]="existing_emp_leave === null ? null : existing_emp_leave.emergency_no"  type="text" formControlName="emergencyPhone" placeholder="" class="form-control input-md" [attr.disabled]="( play_with_leave_button_to == 'nutral' ) ? true : null" >
                             </div>
-    
+                            <div class="alert alert-danger" 
+                                *ngIf="emergencyPhone.touched && !emergencyPhone.valid">
+                                <div *ngIf="emergencyPhone.errors.required">
+                                     PhoneNumber is required!
+                                </div>
+                                <div *ngIf="emergencyPhone.errors.pattern">
+                                    Invalid Number!                         
+                                </div>
+                            </div>
                         </div>
-                </div>              
+                        
+                </div>  
+                <button *ngIf="play_with_leave_button_to == 'create'" type="submit" class="btn btn-primary">Submit</button>
+                        <button *ngIf="play_with_leave_button_to == 'nutral'" class="btn btn-primary" (click)="edit_form()">Update</button>
+                        <button *ngIf="play_with_leave_button_to == 'edit'" type="submit" class="btn btn-primary">Save</button>
+                        <button  *ngIf="play_with_leave_button_to == 'edit'" class="btn btn-success" click="cancel_edit()">Cancel</button>            
             </form>
     
         </div>

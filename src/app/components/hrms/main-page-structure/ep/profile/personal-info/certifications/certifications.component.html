@@ -1,0 +1,70 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+      <h1>
+  Personal Information
+
+</h1>
+      <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Profile</a></li>
+          <li class="active">Certifications</li>
+      </ol>
+  </section>
+  <div class="box">
+      <div class="box-header with-border">
+          <h3 class="box-title">Certifications</h3>
+
+          <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+      </div>
+      <div class="box-body">
+          <form  [formGroup]="formcertification"
+            (ngSubmit)="send()">
+              <div class="form-group">
+                  <table id="example2" class="table table-bordered table-hover">
+                      <thead>
+                          <tr>
+                              <th>Certificate Name</th>
+                              <th>Institution Name</th>
+                              <th>Grade</th>
+                              <th>Certified On(MM-YYYY)</th>
+                              <th>Valid upto(MM-YYYY)</th>
+                              <th>
+                                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                      <i class="fa fa-plus"></i></button>
+                          </tr>
+                      </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input id="certificate-name" name="certificate_name" [(ngModel)]="existing_emp_certification === null ? null : existing_emp_certification.certificate_name" formControlName="certificate_name" type="text"  placeholder="Certification Name" class="form-control input-md" [attr.disabled]="( play_with_certification_button_to == 'nutral' ) ? true : null"  >                                   
+                                </td>                                                                     
+                                <td>
+                                    <input id="institution-name" name="institution_name" [(ngModel)]="existing_emp_certification === null ? null : existing_emp_certification.institution_name" formControlName="institution_name" type="text"  placeholder="Institution Name" class="form-control input-md" [attr.disabled]="( play_with_certification_button_to == 'nutral' ) ? true : null"  >
+                                </td>
+                                <td> 
+                                    <input id="grade" name="grade" [(ngModel)]="existing_emp_certification === null ? null : existing_emp_certification.grade" formControlName="grade" type="text"  placeholder="Grade" class="form-control input-md" [attr.disabled]="( play_with_certification_button_to == 'nutral' ) ? true : null"  >
+                                </td>
+                                <td> 
+                                    <input id="certified-on" name="certified_on" [(ngModel)]="existing_emp_certification === null ? null : existing_emp_certification.certified_on" formControlName="certified_on" type="text"  placeholder="Certified On" class="form-control input-md" [attr.disabled]="( play_with_certification_button_to == 'nutral' ) ? true : null"  > 
+                                </td>
+                                <td>
+                                    <input id="valid-upto" name="valid_upto" [(ngModel)]="existing_emp_certification === null ? null : existing_emp_certification.valid_upto" formControlName="valid_upto" type="text"  placeholder="Valid Upto" class="form-control input-md" [attr.disabled]="( play_with_certification_button_to == 'nutral' ) ? true : null" >
+                                </td>
+                            </tr>
+                        </tbody>
+                  </table>
+                  <button  *ngIf="this.play_with_certification_button_to == 'create'" type="submit" [disabled]="formcertification.invalid" class="btn btn-primary">Submit</button>
+                  <button  *ngIf="this.play_with_certification_button_to == 'nutral'" class="btn btn-primary" (click)="edit_form()">Update</button>
+                  <button *ngIf="this.play_with_certification_button_to == 'edit'" type="submit" [disabled]="formcertification.invalid" class="btn btn-primary">Save</button>
+                  <button  *ngIf="this.play_with_certification_button_to == 'edit'" class="btn btn-primary" (click)="cancel_edit()">Cancel</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
